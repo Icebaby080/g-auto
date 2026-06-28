@@ -7,13 +7,13 @@
 <link rel="stylesheet" href="styles.css">
 </head><body>
 
-<nav class="nav"><div class="wrap">
+<nav class="nav" id="nav">
   <a class="logo" href="index.html">G<b>AUTO</b></a>
   <a class="call" href="tel:+77008888505"><span class="call-full">+7 (700) 888-85-05</span><span class="call-short">Позвонить</span></a>
-</div></nav>
+</nav>
 
 <header class="car-hero no-img">
-  <div class="bg" data-name="eπ 008"></div>
+  <div class="bg" id="heroBg" data-name="eπ 008"></div>
   <div class="inner"><div class="wrap">
     <a class="back" href="index.html">← Все модели</a>
     <span class="eyebrow">DONGFENG · ГИБРИД EREV · SUV</span>
@@ -30,13 +30,13 @@
   </div></div>
 </header>
 
-<section class="sec"><div class="wrap">
+<section class="sec fade-section"><div class="wrap">
   <span class="eyebrow">КОРОТКО О МОДЕЛИ</span>
   <h2>Семейный гибрид-флагман</h2>
   <p class="lead-txt">Dongfeng eπ 008 — семейный гибридный SUV с 6 местами. Технология EREV, до 1300 км запаса хода, премиум-салон второго и третьего рядов.</p>
 </div></section>
 
-<section class="sec" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+<section class="sec fade-section" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
   <span class="eyebrow">ГЛАВНЫЕ ПРЕИМУЩЕСТВА</span>
   <h2>Почему eπ 008</h2>
   <div class="benefits">
@@ -49,7 +49,7 @@
   </div>
 </div></section>
 
-<section class="sec"><div class="wrap">
+<section class="sec fade-section"><div class="wrap">
   <span class="eyebrow">ЭКСТЕРЬЕР</span>
   <h2>Крупный семейный SUV</h2>
   <p class="lead-txt">Внушительные пропорции и выразительная светотехника.</p>
@@ -60,7 +60,7 @@
   </div>
 </div></section>
 
-<section class="sec" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+<section class="sec fade-section" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
   <span class="eyebrow">ИНТЕРЬЕР</span>
   <h2>Премиум в три ряда</h2>
   <p class="lead-txt">Шесть мест, раздельный климат и крупные дисплеи мультимедиа.</p>
@@ -70,7 +70,7 @@
   </div>
 </div></section>
 
-<section class="sec"><div class="wrap">
+<section class="sec fade-section"><div class="wrap">
   <span class="eyebrow">ТЕХНОЛОГИИ И КОМФОРТ</span>
   <h2>Всё для семьи</h2>
   <ul class="tech-list">
@@ -85,7 +85,7 @@
   </ul>
 </div></section>
 
-<section class="sec" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+<section class="sec fade-section" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
   <span class="eyebrow">ХАРАКТЕРИСТИКИ</span>
   <h2>Технические данные</h2>
   <div class="spec-grid">
@@ -100,7 +100,7 @@
   </div>
 </div></section>
 
-<section class="sec"><div class="wrap">
+<section class="sec fade-section"><div class="wrap">
   <span class="eyebrow">КОМПЛЕКТАЦИЯ</span>
   <h2>Что входит</h2>
   <div class="feat">
@@ -110,7 +110,7 @@
   </div>
 </div></section>
 
-<section class="sec"><div class="wrap">
+<section class="sec fade-section"><div class="wrap">
   <div class="ctabig">
     <h2>Оставить заявку на eπ 008</h2>
     <p>Приезжай на Рыскулова 79 или оставь онлайн-заявку — подберём условия и проверим кредит за 1 день.</p>
@@ -132,5 +132,16 @@ Dongfeng в Алматы · честный платёж · программа Tr
   <a href="tel:+77008888505" class="m-call">Позвонить</a>
   <a href="index.html#lead" class="m-lead">Заявка</a>
 </div>
+
+
+<script>
+const nav=document.getElementById("nav");
+const onScroll=()=>{if(window.scrollY>30)nav.classList.add("scrolled");else nav.classList.remove("scrolled");};
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+const heroBg=document.getElementById("heroBg");
+window.addEventListener("scroll",()=>{const y=window.scrollY;if(heroBg&&y<window.innerHeight){heroBg.style.transform="translate3d(0,"+(y*0.18)+"px,0) scale("+(1+y*0.0002)+")";}},{passive:true});
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible");});},{threshold:0.12});
+document.querySelectorAll(".fade-section").forEach(s=>io.observe(s));
+</script>
 
 </body></html>

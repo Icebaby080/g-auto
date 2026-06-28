@@ -106,6 +106,42 @@ tailwind.config = {
   .modal-card{ transform:translateY(40px); transition:transform .45s cubic-bezier(.22,.61,.36,1); }
 
   @media (max-width:768px){ body{ padding-bottom:88px; } }
+
+  /* ===== Digital Showroom ===== */
+  @keyframes roadFlow {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 200px; }
+  }
+  @keyframes carPulse {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-12px) scale(1.02); }
+  }
+  @keyframes lightSweep {
+    0% { transform: translateX(-30%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(30%); opacity: 0; }
+  }
+  .road-stage {
+    background:
+      radial-gradient(120% 80% at 50% 100%, rgba(0,102,255,0.15) 0%, transparent 60%),
+      linear-gradient(180deg, #0a0a0d 0%, #050507 70%, #0a0a0d 100%);
+  }
+  .road-lines {
+    background-image:
+      repeating-linear-gradient(180deg,
+        transparent 0px, transparent 30px,
+        rgba(0,102,255,0.4) 30px, rgba(0,102,255,0.4) 45px,
+        transparent 45px, transparent 90px),
+      repeating-linear-gradient(170deg,
+        transparent 0px, transparent 24%,
+        rgba(255,255,255,0.04) 24%, rgba(255,255,255,0.04) 25%,
+        transparent 25%, transparent 74%,
+        rgba(255,255,255,0.04) 74%, rgba(255,255,255,0.04) 75%);
+    animation: roadFlow 4s linear infinite;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 100%, black 0%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 100%, black 0%, transparent 80%);
+  }
+  .showroom-car { animation: carPulse 6s ease-in-out infinite; }
 </style>
 </head>
 <body class="font-sans">
@@ -159,6 +195,8 @@ tailwind.config = {
       <div><div class="font-display text-2xl text-text">10 банков</div><div class="text-mute text-xs mt-1">партнёров</div></div>
       <div class="w-px self-stretch bg-line hidden sm:block"></div>
       <div><div class="font-display text-2xl text-text">5 моделей</div><div class="text-mute text-xs mt-1">в наличии</div></div>
+      <div class="w-px self-stretch bg-line hidden sm:block"></div>
+      <div><div class="font-display text-2xl text-text">Trade-in</div><div class="text-mute text-xs mt-1">за 1 день</div></div>
     </div>
   </div>
 
@@ -177,6 +215,50 @@ tailwind.config = {
     </div>
     <div id="cardGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </div>
+</section>
+
+<!-- ===================== DIGITAL SHOWROOM ===================== -->
+<section id="showroom" class="relative overflow-hidden py-24 md:py-32 bg-bg2 border-y border-line" data-reveal>
+  <div class="max-w-7.5xl mx-auto px-6 md:px-12 mb-12 md:mb-16">
+    <span class="eyebrow">DIGITAL SHOWROOM</span>
+    <h2 class="section-h2">Прокатись виртуально</h2>
+    <p class="text-dim text-base md:text-lg max-w-2xl">Изучи модельный ряд в движении — а потом приезжай в шоурум за реальной поездкой.</p>
+  </div>
+
+  <!-- 3D / Animation Stage -->
+  <div class="relative h-[60vh] md:h-[75vh] overflow-hidden">
+    <!-- Spline 3D embed: сюда вставить <spline-viewer url="..."> после создания сцены на spline.design -->
+    <div class="absolute inset-0">
+      <!-- Road background with perspective lines -->
+      <div class="road-stage absolute inset-0">
+        <div class="absolute left-1/2 -translate-x-1/2 top-[35%] w-[120vw] h-[40vh] rounded-full bg-accent/15 blur-3xl"></div>
+        <div class="absolute left-1/2 -translate-x-1/2 top-[40%] w-[80vw] h-[20vh] rounded-full bg-white/5 blur-3xl"></div>
+        <div class="road-lines absolute inset-0 opacity-40"></div>
+        <div class="absolute left-0 right-0 bottom-1/4 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"></div>
+        <div class="absolute left-0 right-0 bottom-[35%] h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+      </div>
+      <!-- Car silhouette layer (animated zoom-in) -->
+      <div class="car-stage absolute left-1/2 bottom-[8%] -translate-x-1/2 w-[80vw] max-w-3xl">
+        <img src="images/hero.jpg" alt=""
+             class="showroom-car w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,102,255,0.4)]"
+             onerror="this.style.display='none'">
+      </div>
+      <!-- Overlay text -->
+      <div class="absolute left-6 md:left-12 bottom-6 md:bottom-10 z-10">
+        <div class="text-accent text-xs tracking-[0.3em] uppercase font-bold mb-2">G AUTO · DIGITAL</div>
+        <div class="font-display text-2xl md:text-4xl font-extrabold tracking-tightest">Технологии в движении</div>
+      </div>
+      <div class="absolute right-6 md:right-12 bottom-6 md:bottom-10 z-10 text-right">
+        <a href="#lineup" class="btn-ghost">Выбрать модель →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Spline viewer script — закомментирован пока нет URL -->
+  <!--
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
+  <spline-viewer url="PASTE_SPLINE_SCENE_URL_HERE"></spline-viewer>
+  -->
 </section>
 
 <!-- ===================== CALC ===================== -->
@@ -480,8 +562,8 @@ cardGrid.innerHTML = ORDER.map((id, i) => {
 const WHY = [
   ["0%","Первоначальный взнос","Можно стартовать без первого взноса — по одобренным программам."],
   ["84","Месяца рассрочки","Длинный срок кредита делает ежемесячный платёж комфортным."],
-  ["6","Банков-партнёров","Подаём заявку сразу в несколько банков и выбираем лучшую ставку."],
-  ["Trade-in","Программа Trade-in","Сдайте свою машину в зачёт стоимости новой — быстро и честно."],
+  ["10","Банков-партнёров","Подаём заявку сразу в несколько банков и выбираем лучшую ставку."],
+  ["Trade-in","Программа Trade-in","Сдайте свою машину в зачёт стоимости новой — принимаем за 1 день, быстро и честно."],
   ["₸","Честный платёж","Никаких скрытых комиссий — итоговую сумму называем до подписания."],
   ["Алматы","Шоурум в Алматы","Приезжайте на проспект Турара Рыскулова 79 — покажем и проведём тест-драйв."]
 ];

@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aeolus Haoji — G AUTO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head><body><nav class="nav"><div class="wrap">
+<a class="logo" href="index.html">G<b>AUTO</b></a>
+<a class="call" href="tel:+77008888505">+7 (700) 888-85-05</a>
+</div></nav>
+<div class="wrap">
+  <a class="back" href="index.html">← Все модели</a>
+  <div class="cartop">
+    <div class="gallery">
+      <div class="main"><img id="mainimg" src="images/haoji.jpg" alt="Aeolus Haoji" onerror="this.style.display='none'"><div class="fb">AEOLUS HAOJI</div></div>
+      <div class="thumbs"><div class="thumb active" data-src="images/haoji/front.jpg" onclick="pick(this)">
+  <img src="images/haoji/front.jpg" alt="Спереди" onerror="this.style.display='none'"><span class="lbl">Спереди</span></div><div class="thumb " data-src="images/haoji/side.jpg" onclick="pick(this)">
+  <img src="images/haoji/side.jpg" alt="Сбоку" onerror="this.style.display='none'"><span class="lbl">Сбоку</span></div><div class="thumb " data-src="images/haoji/rear.jpg" onclick="pick(this)">
+  <img src="images/haoji/rear.jpg" alt="Сзади" onerror="this.style.display='none'"><span class="lbl">Сзади</span></div><div class="thumb " data-src="images/haoji/interior.jpg" onclick="pick(this)">
+  <img src="images/haoji/interior.jpg" alt="Салон" onerror="this.style.display='none'"><span class="lbl">Салон</span></div></div>
+    </div>
+    <div class="cardetail">
+      <h1>Aeolus Haoji</h1>
+      <p class="tagline">Свежий кроссовер с характером.</p>
+      <div class="bigprice"><small>ЦЕНА В КРЕДИТ</small>11 500 000 ₸</div>
+      <div class="payline">от <b>262 341 ₸</b> / мес · ПВ 0% · до 84 мес</div>
+      <div class="cta-row">
+        <a class="wa" href="https://wa.me/77008888505?text=Aeolus Haoji" target="_blank">WhatsApp</a>
+        <a class="call" href="tel:+77008888505">Позвонить</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="specs">
+    <h2>Характеристики</h2>
+    <div class="spec-grid"><div class="spec"><div class="k">Двигатель</div><div class="v">1.5 Turbo / гибрид Mach MHD</div></div><div class="spec"><div class="k">Мощность</div><div class="v">204 л.с (ICE) · 245 л.с (гибрид)</div></div><div class="spec"><div class="k">Коробка</div><div class="v">7DCT / E-CVT</div></div><div class="spec"><div class="k">Экраны</div><div class="v">Сдвоенный дисплей 12.3"</div></div><div class="spec"><div class="k">Помощь</div><div class="v">Ассистент уровня L2</div></div><div class="spec"><div class="k">Класс</div><div class="v">Компактный кроссовер</div></div></div>
+    <div class="feat"><span>Сдвоенный экран 12.3"</span><span>Ассистент водителя L2</span><span>Гибридная версия</span><span>Просторный салон</span><span>Современный дизайн</span></div>
+  </section>
+
+  <div class="ctabig">
+    <h2>Записаться на тест-драйв Aeolus Haoji</h2>
+    <p>Приезжай в шоурум на Рыскулова 79 или напиши — забронируем время.</p>
+    <div class="row">
+      <a class="btn-wa" href="https://wa.me/77008888505?text=Хочу тест-драйв Aeolus Haoji" target="_blank">Написать в WhatsApp</a>
+      <a class="btn-call" href="tel:+77008888505">Позвонить</a>
+    </div>
+  </div>
+</div>
+<footer><div class="wrap">
+<span class="logo">G<b style="color:var(--gold)">AUTO</b></span>
+<b>Рыскулова 79</b>, Алматы<br>
+Крупнейший дистрибьютор Dongfeng Haohan в Алматы · +7 (700) 888-85-05
+</div></footer>
+<script>
+function pick(el){
+  document.querySelectorAll('.thumb').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  var img=document.getElementById('mainimg');
+  img.style.display='block'; img.src=el.dataset.src;
+  img.onerror=function(){this.style.display='none';};
+}
+</script>
+</body></html>

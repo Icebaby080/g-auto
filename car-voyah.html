@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="ru"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voyah Free — G AUTO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head><body><nav class="nav"><div class="wrap">
+<a class="logo" href="index.html">G<b>AUTO</b></a>
+<a class="call" href="tel:+77008888505">+7 (700) 888-85-05</a>
+</div></nav>
+<div class="wrap">
+  <a class="back" href="index.html">← Все модели</a>
+  <div class="cartop">
+    <div class="gallery">
+      <div class="main"><img id="mainimg" src="images/voyah.jpg" alt="Voyah Free" onerror="this.style.display='none'"><div class="fb">VOYAH FREE</div></div>
+      <div class="thumbs"><div class="thumb active" data-src="images/voyah/front.jpg" onclick="pick(this)">
+  <img src="images/voyah/front.jpg" alt="Спереди" onerror="this.style.display='none'"><span class="lbl">Спереди</span></div><div class="thumb " data-src="images/voyah/side.jpg" onclick="pick(this)">
+  <img src="images/voyah/side.jpg" alt="Сбоку" onerror="this.style.display='none'"><span class="lbl">Сбоку</span></div><div class="thumb " data-src="images/voyah/rear.jpg" onclick="pick(this)">
+  <img src="images/voyah/rear.jpg" alt="Сзади" onerror="this.style.display='none'"><span class="lbl">Сзади</span></div><div class="thumb " data-src="images/voyah/interior.jpg" onclick="pick(this)">
+  <img src="images/voyah/interior.jpg" alt="Салон" onerror="this.style.display='none'"><span class="lbl">Салон</span></div></div>
+    </div>
+    <div class="cardetail">
+      <h1>Voyah Free</h1>
+      <p class="tagline">Премиум-SUV. Уровень Audi и BMW.</p>
+      <div class="bigprice"><small>ЦЕНА В КРЕДИТ</small>17 500 000 ₸</div>
+      <div class="payline">от <b>399 214 ₸</b> / мес · ПВ 0% · до 84 мес</div>
+      <div class="cta-row">
+        <a class="wa" href="https://wa.me/77008888505?text=Voyah Free" target="_blank">WhatsApp</a>
+        <a class="call" href="tel:+77008888505">Позвонить</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="specs">
+    <h2>Характеристики</h2>
+    <div class="spec-grid"><div class="spec"><div class="k">Класс</div><div class="v">Премиум-SUV сегмента E</div></div><div class="spec"><div class="k">Привод</div><div class="v">Полный 4WD</div></div><div class="spec"><div class="k">Тип</div><div class="v">EREV / электро</div></div><div class="spec"><div class="k">Уровень</div><div class="v">Конкурент Audi, BMW</div></div><div class="spec"><div class="k">Салон</div><div class="v">Премиум-отделка</div></div></div>
+    <div class="feat"><span>Полный привод 4WD</span><span>Премиум-салон</span><span>Уровень Audi/BMW</span><span>Панорамная крыша</span><span>Топовая мультимедиа</span></div>
+  </section>
+
+  <div class="ctabig">
+    <h2>Записаться на тест-драйв Voyah Free</h2>
+    <p>Приезжай в шоурум на Рыскулова 79 или напиши — забронируем время.</p>
+    <div class="row">
+      <a class="btn-wa" href="https://wa.me/77008888505?text=Хочу тест-драйв Voyah Free" target="_blank">Написать в WhatsApp</a>
+      <a class="btn-call" href="tel:+77008888505">Позвонить</a>
+    </div>
+  </div>
+</div>
+<footer><div class="wrap">
+<span class="logo">G<b style="color:var(--gold)">AUTO</b></span>
+<b>Рыскулова 79</b>, Алматы<br>
+Крупнейший дистрибьютор Dongfeng Haohan в Алматы · +7 (700) 888-85-05
+</div></footer>
+<script>
+function pick(el){
+  document.querySelectorAll('.thumb').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  var img=document.getElementById('mainimg');
+  img.style.display='block'; img.src=el.dataset.src;
+  img.onerror=function(){this.style.display='none';};
+}
+</script>
+</body></html>

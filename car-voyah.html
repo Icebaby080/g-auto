@@ -32,9 +32,9 @@
   <h2>Дизайн, который замечают</h2>
   <p class="lead">Свежий силуэт, выразительная оптика и пропорции бизнес-класса.</p>
   <div class="shots three">
-    <div class="shot a"><img src="images/voyah/front.jpg" alt="Спереди" onerror="this.style.display='none';this.parentElement.classList.add('empty')"><span class="cap">Спереди</span></div>
-    <div class="shot"><img src="images/voyah/side.jpg" alt="Сбоку" onerror="this.style.display='none';this.parentElement.classList.add('empty')"><span class="cap">Сбоку</span></div>
-    <div class="shot"><img src="images/voyah/rear.jpg" alt="Сзади" onerror="this.style.display='none';this.parentElement.classList.add('empty')"><span class="cap">Сзади</span></div>
+    <div class="shot a"><img src="images/voyah/front.jpg" alt="Спереди" onerror="this.onerror=null;this.src='images/voyah.jpg';this.onerror=function(){this.style.display='none';this.parentElement.classList.add('empty');};"><span class="cap">Спереди</span></div>
+    <div class="shot"><img src="images/voyah/side.jpg" alt="Сбоку" onerror="this.onerror=null;this.src='images/voyah.jpg';this.onerror=function(){this.style.display='none';this.parentElement.classList.add('empty');};"><span class="cap">Сбоку</span></div>
+    <div class="shot"><img src="images/voyah/rear.jpg" alt="Сзади" onerror="this.onerror=null;this.src='images/voyah.jpg';this.onerror=function(){this.style.display='none';this.parentElement.classList.add('empty');};"><span class="cap">Сзади</span></div>
   </div>
 </div></section>
 
@@ -43,8 +43,8 @@
   <h2>Внутри — как в премиум-классе</h2>
   <p class="lead">Большие экраны, качественные материалы и продуманная эргономика.</p>
   <div class="shots" style="grid-template-columns:1fr 1fr">
-    <div class="shot" style="min-height:300px"><img src="images/voyah/interior.jpg" alt="Салон" onerror="this.style.display='none';this.parentElement.classList.add('empty')"><span class="cap">Салон</span></div>
-    <div class="shot" style="min-height:300px"><img src="images/voyah/dash.jpg" alt="Панель" onerror="this.style.display='none';this.parentElement.classList.add('empty')"><span class="cap">Панель приборов</span></div>
+    <div class="shot" style="min-height:300px"><img src="images/voyah/interior.jpg" alt="Салон" onerror="this.onerror=null;this.src='images/voyah.jpg';this.onerror=function(){this.style.display='none';this.parentElement.classList.add('empty');};"><span class="cap">Салон</span></div>
+    <div class="shot" style="min-height:300px"><img src="images/voyah/dash.jpg" alt="Панель" onerror="this.onerror=null;this.src='images/voyah.jpg';this.onerror=function(){this.style.display='none';this.parentElement.classList.add('empty');};"><span class="cap">Панель приборов</span></div>
   </div>
 </div></section>
 
@@ -97,4 +97,8 @@
   img.src=url;
 })();
 </script>
+<div class="mobile-cta" aria-hidden="false">
+  <a href="https://wa.me/77008888505" target="_blank" rel="noopener" class="m-wa">WhatsApp</a>
+  <a href="tel:+77008888505" class="m-call">Позвонить</a>
+</div>
 </body></html>

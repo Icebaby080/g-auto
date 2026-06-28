@@ -9,56 +9,92 @@
 <a class="logo" href="index.html">G<b>AUTO</b></a>
 <a class="call" href="tel:+77008888505">+7 (700) 888-85-05</a>
 </div></nav>
-<div class="wrap">
-  <a class="back" href="index.html">← Все модели</a>
-  <div class="cartop">
-    <div class="gallery">
-      <div class="main"><img id="mainimg" src="images/haohan.jpg" alt="Aeolus Haohan" onerror="this.style.display='none'"><div class="fb">AEOLUS HAOHAN</div></div>
-      <div class="thumbs"><div class="thumb active" data-src="images/haohan/front.jpg" onclick="pick(this)">
-  <img src="images/haohan/front.jpg" alt="Спереди" onerror="this.style.display='none'"><span class="lbl">Спереди</span></div><div class="thumb " data-src="images/haohan/side.jpg" onclick="pick(this)">
-  <img src="images/haohan/side.jpg" alt="Сбоку" onerror="this.style.display='none'"><span class="lbl">Сбоку</span></div><div class="thumb " data-src="images/haohan/rear.jpg" onclick="pick(this)">
-  <img src="images/haohan/rear.jpg" alt="Сзади" onerror="this.style.display='none'"><span class="lbl">Сзади</span></div><div class="thumb " data-src="images/haohan/interior.jpg" onclick="pick(this)">
-  <img src="images/haohan/interior.jpg" alt="Салон" onerror="this.style.display='none'"><span class="lbl">Салон</span></div></div>
+<header class="car-hero">
+  <div class="bg"><img src="images/haohan/hero.jpg" alt="Aeolus Haohan" onerror="this.onerror=null;this.src='images/haohan.jpg'"></div>
+  <div class="inner"><div class="wrap">
+    <a class="back" href="index.html">← Все модели</a>
+    <span class="eyebrow">DONGFENG · G AUTO</span>
+    <h1>Aeolus Haohan</h1>
+    <p class="tagline">Флагман. Мощь, технологии, статус.</p>
+    <div class="hero-buybar">
+      <div class="price"><small>ЦЕНА В КРЕДИТ</small>10 500 000 ₸</div>
+      <div class="pay">платёж от <b>239 528 ₸</b> / мес<br>ПВ 0% · до 84 мес</div>
     </div>
-    <div class="cardetail">
-      <h1>Aeolus Haohan</h1>
-      <p class="tagline">Флагман. Мощь, технологии, статус.</p>
-      <div class="bigprice"><small>ЦЕНА В КРЕДИТ</small>10 500 000 ₸</div>
-      <div class="payline">от <b>239 528 ₸</b> / мес · ПВ 0% · до 84 мес</div>
-      <div class="cta-row">
-        <a class="wa" href="https://wa.me/77008888505?text=Aeolus Haohan" target="_blank">WhatsApp</a>
-        <a class="call" href="tel:+77008888505">Позвонить</a>
-      </div>
+    <div class="hero-cta">
+      <a class="wa" href="https://wa.me/77008888505?text=Интересует Aeolus Haohan" target="_blank">Написать в WhatsApp</a>
+      <a class="call" href="tel:+77008888505">Позвонить</a>
+    </div>
+  </div></div>
+</header>
+
+<section class="sec"><div class="wrap">
+  <span class="eyebrow">ЭКСТЕРЬЕР</span>
+  <h2>Дизайн, который замечают</h2>
+  <p class="lead">Свежий силуэт, выразительная оптика и пропорции бизнес-класса.</p>
+  <div class="shots three">
+    <div class="shot a"><img src="images/haohan/front.jpg" alt="Спереди" onerror="this.style.display='none';this.parentElement.classList.add('empty')"><span class="cap">Спереди</span></div>
+    <div class="shot"><img src="images/haohan/side.jpg" alt="Сбоку" onerror="this.style.display='none';this.parentElement.classList.add('empty')"><span class="cap">Сбоку</span></div>
+    <div class="shot"><img src="images/haohan/rear.jpg" alt="Сзади" onerror="this.style.display='none';this.parentElement.classList.add('empty')"><span class="cap">Сзади</span></div>
+  </div>
+</div></section>
+
+<section class="sec" style="background:var(--bg2)"><div class="wrap">
+  <span class="eyebrow">ИНТЕРЬЕР</span>
+  <h2>Внутри — как в премиум-классе</h2>
+  <p class="lead">Большие экраны, качественные материалы и продуманная эргономика.</p>
+  <div class="shots" style="grid-template-columns:1fr 1fr">
+    <div class="shot" style="min-height:300px"><img src="images/haohan/interior.jpg" alt="Салон" onerror="this.style.display='none';this.parentElement.classList.add('empty')"><span class="cap">Салон</span></div>
+    <div class="shot" style="min-height:300px"><img src="images/haohan/dash.jpg" alt="Панель" onerror="this.style.display='none';this.parentElement.classList.add('empty')"><span class="cap">Панель приборов</span></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <span class="eyebrow">ОБЗОР 360°</span>
+  <h2>Загляни в салон</h2>
+  <p class="lead">Покрути салон во все стороны — как будто сидишь внутри.</p>
+  <div class="pano-wrap">
+    <div id="pano"></div>
+    <div class="pano-empty" id="panoEmpty">
+      <div class="big">360°</div>
+      <div class="t">Панорама салона появится здесь. Приезжай в шоурум на Рыскулова 79 — посмотришь вживую.</div>
     </div>
   </div>
+</div></section>
 
-  <section class="specs">
-    <h2>Характеристики</h2>
-    <div class="spec-grid"><div class="spec"><div class="k">Двигатель</div><div class="v">1.5 Turbo (Mach / DFM-Honda)</div></div><div class="spec"><div class="k">Мощность</div><div class="v">204 л.с · 350 Нм</div></div><div class="spec"><div class="k">Коробка</div><div class="v">7DCT, мокрое сцепление</div></div><div class="spec"><div class="k">Диски</div><div class="v">18 дюймов</div></div><div class="spec"><div class="k">Камеры</div><div class="v">Круговой обзор 360°</div></div><div class="spec"><div class="k">Крыша</div><div class="v">Панорамная</div></div><div class="spec"><div class="k">Подогрев</div><div class="v">4 сиденья</div></div><div class="spec"><div class="k">Запас хода</div><div class="v">до 1300 км (гибрид)</div></div></div>
-    <div class="feat"><span>Панорамная крыша</span><span>Камеры 360°</span><span>4 подогрева сидений</span><span>Мультимедиа с большим экраном</span><span>Системы помощи водителю</span><span>18" легкосплавные диски</span></div>
-  </section>
+<section class="sec" style="background:var(--bg2)"><div class="wrap">
+  <span class="eyebrow">ХАРАКТЕРИСТИКИ</span>
+  <h2>Что под капотом</h2>
+  <div class="spec-grid" style="margin-top:26px"><div class="spec"><div class="k">Двигатель</div><div class="v">1.5 Turbo (Mach / DFM-Honda)</div></div><div class="spec"><div class="k">Мощность</div><div class="v">204 л.с · 350 Нм</div></div><div class="spec"><div class="k">Коробка</div><div class="v">7DCT, мокрое сцепление</div></div><div class="spec"><div class="k">Диски</div><div class="v">18 дюймов</div></div><div class="spec"><div class="k">Камеры</div><div class="v">Круговой обзор 360°</div></div><div class="spec"><div class="k">Крыша</div><div class="v">Панорамная</div></div><div class="spec"><div class="k">Подогрев</div><div class="v">4 сиденья</div></div><div class="spec"><div class="k">Запас хода</div><div class="v">до 1300 км (гибрид)</div></div></div>
+  <div class="feat"><span>Панорамная крыша</span><span>Камеры 360°</span><span>4 подогрева сидений</span><span>Мультимедиа с большим экраном</span><span>Системы помощи водителю</span><span>18" легкосплавные диски</span></div>
+</div></section>
 
-  <div class="ctabig">
+<section class="sec"><div class="wrap">
+  <div class="ctabig" style="margin-top:0">
     <h2>Записаться на тест-драйв Aeolus Haohan</h2>
-    <p>Приезжай в шоурум на Рыскулова 79 или напиши — забронируем время.</p>
+    <p>Приезжай на Рыскулова 79 или напиши — забронируем время и проверим кредит.</p>
     <div class="row">
       <a class="btn-wa" href="https://wa.me/77008888505?text=Хочу тест-драйв Aeolus Haohan" target="_blank">Написать в WhatsApp</a>
       <a class="btn-call" href="tel:+77008888505">Позвонить</a>
     </div>
   </div>
-</div>
+</div></section>
 <footer><div class="wrap">
 <span class="logo">G<b style="color:var(--gold)">AUTO</b></span>
 <b>Рыскулова 79</b>, Алматы<br>
 Крупнейший дистрибьютор Dongfeng Haohan в Алматы · +7 (700) 888-85-05
 </div></footer>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.js"></script>
 <script>
-function pick(el){
-  document.querySelectorAll('.thumb').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  var img=document.getElementById('mainimg');
-  img.style.display='block'; img.src=el.dataset.src;
-  img.onerror=function(){this.style.display='none';};
-}
+(function(){
+  var url="images/haohan/pano.jpg";
+  var img=new Image();
+  img.onload=function(){
+    document.getElementById('panoEmpty').style.display='none';
+    pannellum.viewer('pano',{type:'equirectangular',panorama:url,autoLoad:true,autoRotate:-2,showControls:true});
+  };
+  img.onerror=function(){ document.getElementById('pano').style.display='none'; };
+  img.src=url;
+})();
 </script>
 </body></html>

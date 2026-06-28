@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G AUTO — Dongfeng в Алматы</title>
+<style>
+  :root{--bg:#0a0a0c;--card:#141418;--line:#26262e;--gold:#d4a14a;--gold2:#f0c674;--txt:#f4f4f6;--mut:#9a9aa6}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  header{padding:60px 0 40px;text-align:center;position:relative;overflow:hidden}
+  header::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(212,161,74,.18),transparent 60%);z-index:0}
+  .brand{font-size:15px;letter-spacing:5px;color:var(--gold);font-weight:700;position:relative;z-index:1}
+  h1{font-size:clamp(32px,6vw,58px);font-weight:800;margin:14px 0;line-height:1.05;position:relative;z-index:1}
+  h1 span{background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{color:var(--mut);font-size:clamp(15px,2.5vw,19px);max-width:560px;margin:0 auto;position:relative;z-index:1}
+  .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px;position:relative;z-index:1}
+  .badge{background:var(--card);border:1px solid var(--line);border-radius:100px;padding:9px 18px;font-size:13px;font-weight:600}
+  .badge b{color:var(--gold)}
+  section{padding:50px 0}
+  .stitle{font-size:13px;letter-spacing:3px;color:var(--gold);font-weight:700;text-align:center;margin-bottom:8px}
+  .shead{font-size:clamp(26px,4vw,38px);font-weight:800;text-align:center;margin-bottom:38px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:22px}
+  .car{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+  .car:hover{transform:translateY(-4px);border-color:var(--gold)}
+  .photo{height:210px;background:linear-gradient(135deg,#1c1c22,#2a2a33);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .photo .ph{position:absolute;color:#54545e;font-size:13px;letter-spacing:1px;z-index:0}
+  .photo .tag{position:absolute;top:12px;left:12px;background:rgba(212,161,74,.95);color:#0a0a0c;font-size:11px;font-weight:800;padding:5px 11px;border-radius:7px;letter-spacing:.5px;z-index:2}
+  .cbody{padding:20px;display:flex;flex-direction:column;flex:1}
+  .cname{font-size:21px;font-weight:800}
+  .cspec{color:var(--mut);font-size:13px;margin:4px 0 16px}
+  .price{font-size:13px;color:var(--mut)}
+  .price b{display:block;font-size:26px;color:var(--txt);font-weight:800;letter-spacing:-.5px}
+  .pmonth{margin-top:12px;padding:12px;background:rgba(212,161,74,.08);border:1px solid rgba(212,161,74,.25);border-radius:12px;font-size:13px;color:var(--mut)}
+  .pmonth b{color:var(--gold2);font-size:18px;font-weight:800}
+  .cbtns{margin-top:auto;padding-top:16px;display:flex;gap:8px}
+  .cbtns a{flex:1;text-align:center;padding:12px;border-radius:12px;text-decoration:none;font-size:14px;font-weight:800}
+  .cbtns .wa{background:#25d366;color:#fff}
+  .cbtns .call{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+  .calc{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:34px;max-width:640px;margin:0 auto}
+  .calc h3{font-size:24px;font-weight:800;margin-bottom:6px}
+  .calc p.note{color:var(--mut);font-size:13px;margin-bottom:24px}
+  .field{margin-bottom:22px}
+  .field label{display:flex;justify-content:space-between;font-size:14px;font-weight:600;margin-bottom:10px}
+  .field label span{color:var(--gold2)}
+  select,input[type=range]{width:100%}
+  select{background:#0a0a0c;color:var(--txt);border:1px solid var(--line);border-radius:12px;padding:13px;font-size:15px;font-weight:600}
+  input[type=range]{-webkit-appearance:none;height:6px;background:var(--line);border-radius:10px;outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));cursor:pointer;box-shadow:0 0 0 4px rgba(212,161,74,.2)}
+  .result{background:linear-gradient(135deg,rgba(212,161,74,.12),rgba(212,161,74,.04));border:1px solid rgba(212,161,74,.3);border-radius:16px;padding:24px;text-align:center;margin-top:8px}
+  .result .lbl{font-size:13px;color:var(--mut);letter-spacing:1px}
+  .result .big{font-size:42px;font-weight:800;background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin:4px 0}
+  .result .sm{font-size:13px;color:var(--mut)}
+  .cta{text-align:center;background:linear-gradient(135deg,#141418,#1c1c22);border:1px solid var(--line);border-radius:24px;padding:48px 24px}
+  .cta h3{font-size:clamp(24px,4vw,34px);font-weight:800;margin-bottom:12px}
+  .cta p{color:var(--mut);margin-bottom:26px}
+  .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .wa-big{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;font-weight:800;padding:16px 32px;border-radius:14px;text-decoration:none;font-size:17px}
+  .call-big{display:inline-flex;align-items:center;gap:10px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-weight:800;padding:16px 32px;border-radius:14px;text-decoration:none;font-size:17px}
+  footer{text-align:center;padding:40px 0;color:var(--mut);font-size:13px;border-top:1px solid var(--line);margin-top:30px}
+  footer b{color:var(--txt)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">G AUTO · АЛМАТЫ</div>
+    <h1>DONGFENG — <span>технологии<br>без переплат</span></h1>
+    <p class="sub">Свежие модели Dongfeng в кредит. Первоначальный взнос — 0%. Честный платёж без скрытых условий.</p>
+    <div class="badges">
+      <div class="badge"><b>0%</b> первый взнос</div>
+      <div class="badge">до <b>84</b> месяцев</div>
+      <div class="badge">6 банков-партнёров</div>
+      <div class="badge">Трейд-ин принимаем</div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="stitle">МОДЕЛЬНЫЙ РЯД</div>
+    <div class="shead">Выбери свою машину</div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="stitle">КАЛЬКУЛЯТОР</div>
+    <div class="shead">Рассчитай платёж</div>
+    <div class="calc">
+      <h3>Кредит без булшита</h3>
+      <p class="note">Расчёт примерный, при ставке 21% годовых. Точную сумму назовём по одобрению банка.</p>
+      <div class="field">
+        <label>Модель <span id="mLbl">Haohan</span></label>
+        <select id="model"></select>
+      </div>
+      <div class="field">
+        <label>Первоначальный взнос <span id="dpLbl">0 ₸</span></label>
+        <input type="range" id="dp" min="0" max="50" value="0" step="5">
+      </div>
+      <div class="field">
+        <label>Срок <span id="tLbl">84 мес</span></label>
+        <input type="range" id="term" min="12" max="84" value="84" step="6">
+      </div>
+      <div class="result">
+        <div class="lbl">ЕЖЕМЕСЯЧНЫЙ ПЛАТЁЖ</div>
+        <div class="big" id="pay">—</div>
+        <div class="sm" id="detail"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <h3>Сидишь и думаешь? Звони — посчитаем за 5 минут</h3>
+      <p>Подберём модель, проверим одобрение по 6 банкам, примем твою машину в трейд-ин.</p>
+      <div class="cta-btns">
+        <a class="wa-big" href="https://wa.me/PHONE_DIGITS" target="_blank">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607z"/></svg>
+          WhatsApp
+        </a>
+        <a class="call-big" href="tel:+PHONE_DIGITS">📞 Позвонить</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>G AUTO</b> · Рыскулова 79 · Трейд-ин: Карасай батыр 98<br>
+    Крупнейший дистрибьютор Dongfeng Haohan в Алматы
+  </div>
+</footer>
+
+<script>
+  // ===== ВПИШИ СВОЙ ПОЛНЫЙ НОМЕР (только цифры, начиная с 7) =====
+  const PHONE = "77008888505";          // напр. 77071234505
+  const PHONE_VIEW = "+7 (700) 888-85-05";
+
+  const cars = [
+    {name:"Aeolus Haohan", spec:"1.5T · 204 л.с · 7DCT · камеры 360°", price:10500000, tag:"ХИТ",   img:"images/haohan.jpg"},
+    {name:"Aeolus Haoji",  spec:"Кроссовер · свежий дизайн",          price:11500000, tag:"",       img:"images/haoji.jpg"},
+    {name:"eπ 007",        spec:"Седан-гибрид · запас хода 1200 км",  price:11500000, tag:"ГИБРИД", img:"images/ep007.jpg"},
+    {name:"eπ 008",        spec:"SUV-гибрид · 6 мест · до 1300 км",   price:16500000, tag:"ГИБРИД", img:"images/ep008.jpg"},
+    {name:"Voyah Free",    spec:"Премиум SUV · конкурент Audi",       price:17500000, tag:"ТОП",    img:"images/voyah.jpg"}
+  ];
+  const RATE=0.21, fmt=n=>new Intl.NumberFormat('ru-RU').format(Math.round(n))+" ₸";
+  const monthly=(sum,m)=>{const r=RATE/12;return sum*r/(1-Math.pow(1+r,-m));};
+  const wa=t=>`https://wa.me/${PHONE}?text=${encodeURIComponent(t)}`;
+
+  document.getElementById('grid').innerHTML = cars.map(c=>`
+    <div class="car">
+      <div class="photo">
+        ${c.tag?`<div class="tag">${c.tag}</div>`:''}
+        <div class="ph">${c.name.toUpperCase()}</div>
+        <img src="${c.img}" alt="${c.name}" onerror="this.style.display='none'">
+      </div>
+      <div class="cbody">
+        <div class="cname">${c.name}</div>
+        <div class="cspec">${c.spec}</div>
+        <div class="price">Цена в кредит<b>${fmt(c.price)}</b></div>
+        <div class="pmonth">от <b>${fmt(monthly(c.price,84))}</b> / мес · ПВ 0%</div>
+        <div class="cbtns">
+          <a class="wa" href="${wa('Здравствуйте! Интересует '+c.name)}" target="_blank">WhatsApp</a>
+          <a class="call" href="tel:+${PHONE}">Звонок</a>
+        </div>
+      </div>
+    </div>`).join('');
+
+  const sel=document.getElementById('model');
+  sel.innerHTML=cars.map((c,i)=>`<option value="${i}">${c.name} — ${fmt(c.price)}</option>`).join('');
+  const dp=document.getElementById('dp'), term=document.getElementById('term');
+  function calc(){
+    const c=cars[sel.value], dpAmt=c.price*(dp.value/100), sum=c.price-dpAmt, m=+term.value;
+    document.getElementById('mLbl').textContent=c.name;
+    document.getElementById('dpLbl').textContent=dp.value+"% · "+fmt(dpAmt);
+    document.getElementById('tLbl').textContent=m+" мес";
+    document.getElementById('pay').textContent=fmt(monthly(sum,m));
+    document.getElementById('detail').textContent=`${c.name} · сумма кредита ${fmt(sum)} · ${m} мес`;
+  }
+  [sel,dp,term].forEach(e=>e.addEventListener('input',calc));
+  calc();
+
+  // подставить номер в CTA-кнопки
+  document.querySelectorAll('a[href*="PHONE_DIGITS"]').forEach(a=>{
+    a.href=a.href.replace('PHONE_DIGITS',PHONE);
+  });
+</script>
+
+</body>
+</html>

@@ -1,337 +1,665 @@
-<!DOCTYPE html><html lang="ru"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>G AUTO — Dongfeng в Алматы · честный платёж</title>
-<meta name="description" content="Dongfeng в Алматы: Aeolus Haohan, Haoji, eπ 007, eπ 008, Voyah Free. Первый взнос от 0%, кредит до 84 месяцев, 6 банков-партнёров, Trade-in.">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>G AUTO — Dongfeng в Алматы · кредит, Trade-in, онлайн-заявка</title>
+<meta name="description" content="G AUTO — официальный модельный ряд Dongfeng в Алматы. Первоначальный взнос от 0%, кредит до 84 месяцев, 6 банков-партнёров, программа Trade-in. Aeolus Haohan, Haoji, eπ 007, eπ 008, Voyah Free." />
+<meta name="theme-color" content="#0a0a0d" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head><body>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800;900&display=swap" rel="stylesheet">
 
-<nav class="nav" id="nav">
-  <a class="logo" href="index.html">G<b>AUTO</b></a>
-  <a class="call" href="tel:+77008888505"><span class="call-full">+7 (700) 888-85-05</span><span class="call-short">Позвонить</span></a>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        bg:    '#0a0a0d',
+        bg2:   '#111114',
+        bg3:   '#16161b',
+        line:  'rgba(255,255,255,0.06)',
+        line2: 'rgba(255,255,255,0.14)',
+        accent:'#0066ff',
+        accent2:'#0052cc',
+        accentGlow:'rgba(0,102,255,0.18)',
+        text:  '#f5f5f7',
+        dim:   '#a6a6b1',
+        mute:  '#6e6e7a',
+        wa:    '#25D366',
+      },
+      fontFamily: {
+        display: ['Unbounded', 'system-ui', 'sans-serif'],
+        sans:    ['Manrope', 'system-ui', 'sans-serif'],
+      },
+      maxWidth: { '7.5xl': '1340px' },
+      letterSpacing: { tightest: '-0.03em' },
+    }
+  }
+}
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { background:#0a0a0d; color:#f5f5f7; font-family:'Manrope',system-ui,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  ::selection { background: rgba(0,102,255,0.35); color:#fff; }
+  ::-webkit-scrollbar { width: 9px; background:#0a0a0d; }
+  ::-webkit-scrollbar-thumb { background: rgba(0,102,255,0.3); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(0,102,255,0.5); }
+
+  /* Buttons */
+  .btn-primary{ display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:1rem 1.75rem; border-radius:9999px; font-weight:700; font-size:15px; background:#0066ff; color:#fff; transition:all .3s cubic-bezier(.22,.61,.36,1); box-shadow:0 12px 32px -10px rgba(0,102,255,.55); }
+  .btn-primary:hover{ background:#0052cc; transform:translateY(-2px); box-shadow:0 18px 44px -10px rgba(0,102,255,.7); }
+  .btn-ghost{ display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:1rem 1.75rem; border-radius:9999px; font-weight:700; font-size:15px; color:#f5f5f7; border:1px solid rgba(255,255,255,.14); transition:all .3s cubic-bezier(.22,.61,.36,1); background:rgba(255,255,255,0); }
+  .btn-ghost:hover{ background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.3); transform:translateY(-2px); }
+  .btn-wa{ display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:1rem 1.75rem; border-radius:9999px; font-weight:700; font-size:15px; background:#25D366; color:#051905; transition:all .3s ease; }
+  .btn-wa:hover{ filter:brightness(1.08); transform:translateY(-2px); }
+
+  .eyebrow{ display:inline-block; font-size:12px; letter-spacing:.3em; text-transform:uppercase; font-weight:700; color:#0066ff; margin-bottom:1rem; }
+  .section-h2{ font-family:'Unbounded',sans-serif; font-weight:700; font-size:clamp(32px,5vw,62px); line-height:1.05; letter-spacing:-0.03em; margin-bottom:3rem; }
+
+  /* Reveal on scroll */
+  [data-reveal]{ opacity:0; transform:translateY(42px); transition:opacity 1s cubic-bezier(.22,.61,.36,1), transform 1s cubic-bezier(.22,.61,.36,1); }
+  [data-reveal].visible{ opacity:1; transform:translateY(0); }
+  [data-reveal][data-d="1"]{ transition-delay:.08s } [data-reveal][data-d="2"]{ transition-delay:.16s }
+  [data-reveal][data-d="3"]{ transition-delay:.24s } [data-reveal][data-d="4"]{ transition-delay:.32s }
+  [data-reveal][data-d="5"]{ transition-delay:.40s }
+
+  /* Hero staggered fade */
+  [data-fade]{ opacity:0; transform:translateY(24px); transition:opacity 1.1s cubic-bezier(.22,.61,.36,1), transform 1.1s cubic-bezier(.22,.61,.36,1); }
+  [data-fade].on{ opacity:1; transform:translateY(0); }
+
+  #heroImg{ will-change:transform; transform:translate3d(0,0,0); }
+
+  /* Hero grain */
+  .grain::after{ content:""; position:absolute; inset:0; pointer-events:none; opacity:.5; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E"); }
+
+  /* Sticky nav */
+  #nav{ transition: background .4s ease, padding .35s ease, border-color .4s ease; }
+  #nav.scrolled{ backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); background:rgba(10,10,13,.72); border-bottom:1px solid rgba(255,255,255,.06); padding-top:10px; padding-bottom:10px; }
+
+  /* Card / modal no-image fallback */
+  .no-img{ background:
+      radial-gradient(80% 60% at 50% 100%, rgba(0,102,255,0.18) 0%, transparent 60%),
+      linear-gradient(180deg,#16161b 0%, #0a0a0d 100%); }
+  .no-img::after{ content:attr(data-name); position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:0 12px; text-align:center;
+    font-family:'Unbounded',sans-serif; font-weight:800; font-size:clamp(20px,2.6vw,34px); letter-spacing:-0.02em;
+    background:linear-gradient(180deg,#fff 0%, #6e6e7a 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .no-img::before{ content:""; position:absolute; bottom:28%; left:10%; right:10%; height:1px; background:linear-gradient(to right, transparent, rgba(0,102,255,.6), transparent); }
+
+  /* Range inputs */
+  input[type="range"]{ -webkit-appearance:none; appearance:none; height:4px; background:rgba(255,255,255,.1); border-radius:2px; outline:none; }
+  input[type="range"]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:22px; height:22px; border-radius:50%; background:#0066ff; cursor:pointer; box-shadow:0 0 0 4px rgba(0,102,255,.18); transition:box-shadow .2s; }
+  input[type="range"]::-webkit-slider-thumb:hover{ box-shadow:0 0 0 7px rgba(0,102,255,.22); }
+  input[type="range"]::-moz-range-thumb{ width:22px; height:22px; border:none; border-radius:50%; background:#0066ff; cursor:pointer; box-shadow:0 0 0 4px rgba(0,102,255,.18); }
+
+  select, input[type="text"], input[type="tel"]{ color:#f5f5f7; }
+  select option{ background:#16161b; color:#f5f5f7; }
+
+  /* Modal */
+  #modalOverlay{ opacity:0; transition:opacity .35s ease; }
+  #modalOverlay.modal-on{ opacity:1; }
+  #modalOverlay.modal-on .modal-card{ transform:translateY(0); }
+  .modal-card{ transform:translateY(40px); transition:transform .45s cubic-bezier(.22,.61,.36,1); }
+
+  @media (max-width:768px){ body{ padding-bottom:88px; } }
+</style>
+</head>
+<body class="font-sans">
+
+<!-- ===================== NAV ===================== -->
+<nav id="nav" class="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 md:px-12 py-5">
+  <a href="#" class="font-display font-extrabold text-xl tracking-[0.08em]">G<span class="text-accent">AUTO</span></a>
+  <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-dim">
+    <a href="#lineup" class="hover:text-text transition">Модели</a>
+    <a href="#calc" class="hover:text-text transition">Кредит</a>
+    <a href="#why" class="hover:text-text transition">Trade-in</a>
+    <a href="#contacts" class="hover:text-text transition">Контакты</a>
+  </div>
+  <a href="tel:+77008888505" class="text-sm font-semibold py-2.5 px-5 border border-line2 rounded-full hover:bg-white/5 transition">+7 (700) 888-85-05</a>
 </nav>
 
-<header class="hero" id="hero">
-  <div class="hero-bg" id="heroBg">
-    <img src="images/hero.jpg" alt="" onerror="this.style.display='none'">
+<!-- ===================== HERO ===================== -->
+<header id="hero" class="relative min-h-screen w-full overflow-hidden flex items-end pb-28 md:pb-40 grain">
+  <div id="heroBg" class="absolute inset-0 z-0">
+    <img id="heroImg" src="images/hero.jpg" alt="" class="w-full h-full object-cover opacity-60"
+         onerror="this.style.display='none'; this.parentElement.classList.add('no-hero');" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/65 to-bg"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-bg/80 via-transparent to-transparent"></div>
+    <div class="absolute top-[-10%] right-[-10%] w-[60vw] h-[60vh] bg-accent/10 blur-[120px] rounded-full"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"></div>
   </div>
-  <div class="wrap">
-    <span class="eyebrow">G AUTO · АЛМАТЫ</span>
-    <h1>Dongfeng<br>в Алматы</h1>
-    <p class="sub">Технологичные автомобили с честным платежом.</p>
-    <p class="lead">Первый взнос от 0%, кредит до 84 месяцев, 6 банков-партнёров, программа Trade-in.</p>
-    <div class="ctas">
-      <a class="btn btn-primary" href="#lead">Оставить онлайн-заявку →</a>
-      <a class="btn btn-ghost" href="#lineup">Открыть модельный ряд</a>
+
+  <div class="relative z-10 max-w-7.5xl mx-auto px-6 md:px-12 w-full">
+    <span data-fade class="inline-flex items-center gap-2 text-xs tracking-[0.3em] font-bold text-accent mb-6">
+      <span class="w-8 h-px bg-accent"></span>G AUTO · АЛМАТЫ
+    </span>
+    <h1 data-fade class="font-display font-extrabold text-[clamp(44px,9vw,128px)] leading-[0.92] tracking-tightest mb-8">
+      Dongfeng <span class="text-accent">в Алматы</span>
+    </h1>
+    <p data-fade class="text-dim text-[clamp(18px,1.8vw,24px)] max-w-2xl mb-3">
+      Технологичные автомобили с честным платежом.
+    </p>
+    <p data-fade class="text-mute text-[clamp(13px,1.1vw,15px)] max-w-xl mb-10 leading-relaxed">
+      Первоначальный взнос от 0%, кредит до 84 месяцев, 6 банков-партнёров и программа Trade-in.
+    </p>
+    <div data-fade class="flex flex-wrap gap-4">
+      <a href="#lead" class="btn-primary">Оставить онлайн-заявку</a>
+      <a href="#lineup" class="btn-ghost">Смотреть модели</a>
     </div>
+
+    <div data-fade class="flex flex-wrap gap-x-10 gap-y-4 mt-14 text-sm">
+      <div><div class="font-display text-2xl text-text">0%</div><div class="text-mute text-xs mt-1">первый взнос</div></div>
+      <div class="w-px self-stretch bg-line hidden sm:block"></div>
+      <div><div class="font-display text-2xl text-text">84 мес</div><div class="text-mute text-xs mt-1">срок кредита</div></div>
+      <div class="w-px self-stretch bg-line hidden sm:block"></div>
+      <div><div class="font-display text-2xl text-text">6 банков</div><div class="text-mute text-xs mt-1">партнёров</div></div>
+      <div class="w-px self-stretch bg-line hidden sm:block"></div>
+      <div><div class="font-display text-2xl text-text">5 моделей</div><div class="text-mute text-xs mt-1">в наличии</div></div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 opacity-50 hidden md:flex flex-col items-center gap-2">
+    <span class="text-[10px] tracking-[0.3em] text-mute uppercase">Скролл</span>
+    <div class="w-px h-12 bg-gradient-to-b from-text/40 to-transparent"></div>
   </div>
 </header>
 
-<section class="section fade-section" id="lineup">
-  <div class="wrap">
-    <span class="eyebrow">Модельный ряд</span>
-    <h2>Выбери свою машину</h2>
-    <div class="lineup-grid">
+<!-- ===================== LINEUP ===================== -->
+<section id="lineup" class="py-24 md:py-32">
+  <div class="max-w-7.5xl mx-auto px-6 md:px-12">
+    <div data-reveal>
+      <span class="eyebrow">Модельный ряд</span>
+      <h2 class="section-h2">Выбери свою машину</h2>
+    </div>
+    <div id="cardGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </div>
+</section>
 
-      <a class="car-card" href="car-haohan.html">
-        <div class="ph"><img src="images/haohan/hero.jpg" alt="Aeolus Haohan" onerror="this.onerror=null;this.src='images/haohan.jpg'"></div>
-        <div class="body">
-          <h3>Aeolus Haohan</h3>
-          <div class="sub">Бензиновый флагман · 1.5 Turbo</div>
-          <div class="price-row">
-            <span class="price">Цена в кредит<b>от 10 500 000 ₸</b></span>
-            <span class="payment">платёж от <b>239 528 ₸</b>/мес</span>
-          </div>
-          <div class="chips"><span>Бензин · 1.5T 204 л.с.</span><span>7DCT</span><span>Камеры 360°</span></div>
-          <span class="more">Подробнее →</span>
+<!-- ===================== CALC ===================== -->
+<section id="calc" class="py-24 md:py-32 bg-bg2 border-y border-line">
+  <div class="max-w-7.5xl mx-auto px-6 md:px-12">
+    <div data-reveal>
+      <span class="eyebrow">Калькулятор</span>
+      <h2 class="section-h2">Рассчитай платёж</h2>
+    </div>
+    <div class="grid md:grid-cols-5 gap-6 md:gap-8" data-reveal>
+      <div class="md:col-span-3 space-y-6 p-6 md:p-10 rounded-2xl border border-line bg-bg3">
+        <div>
+          <label class="flex justify-between text-sm text-dim mb-2">Модель <span id="mLbl" class="text-text font-semibold">Aeolus Haohan</span></label>
+          <select id="model" class="w-full bg-bg border border-line2 rounded-xl px-4 py-3.5 text-sm focus:border-accent focus:outline-none transition">
+            <option value="0">Aeolus Haohan — 10 500 000 ₸</option>
+            <option value="1">Aeolus Haoji — 11 500 000 ₸</option>
+            <option value="2">eπ 007 — 11 500 000 ₸</option>
+            <option value="3">eπ 008 — 16 500 000 ₸</option>
+            <option value="4">Voyah Free — 17 500 000 ₸</option>
+          </select>
         </div>
-      </a>
-
-      <a class="car-card" href="car-haoji.html">
-        <div class="ph no-img" data-name="AEOLUS HAOJI"></div>
-        <div class="body">
-          <h3>Aeolus Haoji</h3>
-          <div class="sub">Бензиновый кроссовер · 1.5 Turbo</div>
-          <div class="price-row">
-            <span class="price">Цена в кредит<b>от 11 500 000 ₸</b></span>
-            <span class="payment">платёж от <b>262 341 ₸</b>/мес</span>
-          </div>
-          <div class="chips"><span>Бензин · 1.5T 204 л.с.</span><span>7DCT</span><span>Кроссовер</span></div>
-          <span class="more">Подробнее →</span>
+        <div>
+          <label class="flex justify-between text-sm text-dim mb-2">Первоначальный взнос <span id="dpLbl" class="text-text font-semibold">0% · 0 ₸</span></label>
+          <input id="dp" type="range" min="0" max="20" value="0" step="5" class="w-full">
+          <div class="flex justify-between text-[11px] text-mute mt-1.5"><span>0%</span><span>20%</span></div>
         </div>
-      </a>
-
-      <a class="car-card" href="car-ep007.html">
-        <div class="ph"><img src="images/ep007/hero.jpg" alt="eπ 007" onerror="this.onerror=null;this.src='images/ep007.jpg'"></div>
-        <div class="body">
-          <h3>eπ 007</h3>
-          <div class="sub">Электроседан с увеличенным запасом хода</div>
-          <div class="price-row">
-            <span class="price">Цена в кредит<b>от 11 500 000 ₸</b></span>
-            <span class="payment">платёж от <b>262 341 ₸</b>/мес</span>
-          </div>
-          <div class="chips"><span>EREV · 1200 км запас</span><span>Седан</span><span>Большой экран</span></div>
-          <span class="more">Подробнее →</span>
+        <div>
+          <label class="flex justify-between text-sm text-dim mb-2">Срок <span id="tLbl" class="text-text font-semibold">84 мес</span></label>
+          <input id="term" type="range" min="12" max="84" value="84" step="6" class="w-full">
+          <div class="flex justify-between text-[11px] text-mute mt-1.5"><span>12 мес</span><span>84 мес</span></div>
         </div>
-      </a>
-
-      <a class="car-card" href="car-ep008.html">
-        <div class="ph"><img src="images/ep008/hero.jpg" alt="eπ 008" onerror="this.onerror=null;this.src='images/ep008.jpg'"></div>
-        <div class="body">
-          <h3>eπ 008</h3>
-          <div class="sub">Премиальный SUV на 6 мест</div>
-          <div class="price-row">
-            <span class="price">Цена в кредит<b>от 16 500 000 ₸</b></span>
-            <span class="payment">платёж от <b>376 402 ₸</b>/мес</span>
-          </div>
-          <div class="chips"><span>EREV · 1300 км запас</span><span>SUV · 6 мест</span><span>Премиум-салон</span></div>
-          <span class="more">Подробнее →</span>
-        </div>
-      </a>
-
-      <a class="car-card" href="car-voyah.html">
-        <div class="ph"><img src="images/voyah/hero.jpg" alt="Voyah Free" onerror="this.onerror=null;this.src='images/voyah.jpg'"></div>
-        <div class="body">
-          <h3>Voyah Free</h3>
-          <div class="sub">Премиум SUV с полным приводом</div>
-          <div class="price-row">
-            <span class="price">Цена в кредит<b>от 17 500 000 ₸</b></span>
-            <span class="payment">платёж от <b>399 214 ₸</b>/мес</span>
-          </div>
-          <div class="chips"><span>EREV · полный привод</span><span>Премиум SUV</span><span>Адаптивный круиз</span></div>
-          <span class="more">Подробнее →</span>
-        </div>
-      </a>
-
+        <p class="text-mute text-xs leading-relaxed pt-2">Расчёт примерный при ставке от 21% годовых. Точную сумму назовём после одобрения банка. По промо-программам платёж может быть ниже.</p>
+      </div>
+      <div class="md:col-span-2 p-8 rounded-2xl border border-accent/30 bg-gradient-to-b from-accent/10 to-accent/5 flex flex-col justify-center">
+        <div class="text-accent text-[11px] tracking-[0.2em] uppercase font-semibold mb-3">Платёж от</div>
+        <div id="pay" class="font-display font-extrabold text-[clamp(34px,6vw,60px)] leading-none tracking-tightest mb-3 text-text">—</div>
+        <div id="detail" class="text-dim text-sm mb-6 leading-relaxed">—</div>
+        <button id="calcWaBtn" type="button" class="btn-primary w-full">Оставить заявку с этим расчётом</button>
+        <a href="#lead" class="btn-ghost mt-3 w-full">К полной форме</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section fade-section" id="calc">
-  <div class="wrap">
-    <span class="eyebrow">Калькулятор</span>
-    <h2>Рассчитай платёж</h2>
-    <div class="calc">
-      <h3>Кредитный калькулятор</h3>
-      <p class="note">Расчёт примерный при ставке от 21% годовых. Точную сумму назовём по одобрению банка.</p>
-      <div class="field">
-        <label>Модель <span id="mLbl">—</span></label>
-        <select id="model">
-          <option value="0">Aeolus Haohan — 10 500 000 ₸</option>
-          <option value="1">Aeolus Haoji — 11 500 000 ₸</option>
-          <option value="2">eπ 007 — 11 500 000 ₸</option>
-          <option value="3">eπ 008 — 16 500 000 ₸</option>
-          <option value="4">Voyah Free — 17 500 000 ₸</option>
+<!-- ===================== WHY ===================== -->
+<section id="why" class="py-24 md:py-32">
+  <div class="max-w-7.5xl mx-auto px-6 md:px-12">
+    <div data-reveal>
+      <span class="eyebrow">Почему G AUTO</span>
+      <h2 class="section-h2">Условия, которые не нужно объяснять</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="whyGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== LEAD ===================== -->
+<section id="lead" class="py-24 md:py-32 bg-bg2 border-y border-line">
+  <div class="max-w-7.5xl mx-auto px-6 md:px-12">
+    <div data-reveal>
+      <span class="eyebrow">Онлайн-заявка</span>
+      <h2 class="section-h2">Расскажи о себе — соберём предложение</h2>
+    </div>
+    <form id="leadForm" data-reveal class="grid sm:grid-cols-2 gap-4 md:gap-5 p-6 md:p-10 rounded-2xl border border-line bg-bg3">
+      <label class="block">
+        <span class="block text-mute text-xs mb-2 tracking-wide">Имя</span>
+        <input name="name" required maxlength="60" class="w-full bg-bg border border-line2 rounded-xl px-4 py-3.5 text-sm focus:border-accent focus:outline-none transition" />
+      </label>
+      <label class="block">
+        <span class="block text-mute text-xs mb-2 tracking-wide">Телефон</span>
+        <input name="phone" type="tel" inputmode="tel" placeholder="+7 ___ ___ __ __" required class="w-full bg-bg border border-line2 rounded-xl px-4 py-3.5 text-sm focus:border-accent focus:outline-none transition" />
+      </label>
+      <label class="block">
+        <span class="block text-mute text-xs mb-2 tracking-wide">Модель</span>
+        <select name="model" class="w-full bg-bg border border-line2 rounded-xl px-4 py-3.5 text-sm focus:border-accent focus:outline-none transition">
+          <option>Aeolus Haohan</option>
+          <option>Aeolus Haoji</option>
+          <option>eπ 007</option>
+          <option>eπ 008</option>
+          <option>Voyah Free</option>
+          <option>Пока выбираю</option>
         </select>
-      </div>
-      <div class="field">
-        <label>Первоначальный взнос <span id="dpLbl">—</span></label>
-        <input type="range" id="dp" min="0" max="50" step="5" value="20">
-      </div>
-      <div class="field">
-        <label>Срок кредита <span id="tLbl">—</span></label>
-        <input type="range" id="term" min="12" max="84" step="6" value="60">
-      </div>
-      <div class="result">
-        <div class="lbl">Платёж от</div>
-        <div class="big" id="pay">—</div>
-        <div class="sm" id="detail"></div>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#" id="calcWaBtn">Оставить заявку с этим расчётом</a>
-          <a class="btn btn-ghost" href="#lead">К полной форме</a>
+      </label>
+      <label class="block">
+        <span class="block text-mute text-xs mb-2 tracking-wide">Первоначальный взнос</span>
+        <select name="downpayment" class="w-full bg-bg border border-line2 rounded-xl px-4 py-3.5 text-sm focus:border-accent focus:outline-none transition">
+          <option>0%</option><option>5%</option><option>10%</option><option>15%</option><option>20%</option>
+        </select>
+      </label>
+      <label class="block">
+        <span class="block text-mute text-xs mb-2 tracking-wide">Trade-in</span>
+        <select name="tradein" class="w-full bg-bg border border-line2 rounded-xl px-4 py-3.5 text-sm focus:border-accent focus:outline-none transition">
+          <option>Нет</option>
+          <option>Да, есть машина</option>
+        </select>
+      </label>
+      <label class="block">
+        <span class="block text-mute text-xs mb-2 tracking-wide">Удобное время связи</span>
+        <select name="time" class="w-full bg-bg border border-line2 rounded-xl px-4 py-3.5 text-sm focus:border-accent focus:outline-none transition">
+          <option>Сейчас удобно</option>
+          <option>Сегодня вечером</option>
+          <option>Завтра утром</option>
+          <option>Завтра днём</option>
+        </select>
+      </label>
+      <button type="submit" class="sm:col-span-2 btn-primary w-full text-base">Отправить заявку в WhatsApp</button>
+      <p class="sm:col-span-2 text-mute text-xs text-center">Заявка откроется в WhatsApp с готовым текстом — нажмите «Отправить».</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== CONTACTS ===================== -->
+<section id="contacts" class="py-24 md:py-32">
+  <div class="max-w-7.5xl mx-auto px-6 md:px-12">
+    <div data-reveal>
+      <span class="eyebrow">Контакты</span>
+      <h2 class="section-h2">Приезжайте в шоурум</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-stretch" data-reveal>
+      <div class="space-y-6">
+        <div class="p-6 md:p-8 rounded-2xl border border-line bg-bg2">
+          <div class="text-mute text-[11px] tracking-[0.15em] uppercase font-semibold mb-2">Адрес</div>
+          <div class="font-display text-xl md:text-2xl mb-1">G AUTO</div>
+          <div class="text-dim">Алматы, проспект Турара Рыскулова 79</div>
         </div>
+        <div class="p-6 md:p-8 rounded-2xl border border-line bg-bg2">
+          <div class="text-mute text-[11px] tracking-[0.15em] uppercase font-semibold mb-3">Телефон</div>
+          <a href="tel:+77008888505" class="font-display text-2xl md:text-3xl text-text hover:text-accent transition">+7 (700) 888-85-05</a>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://wa.me/77008888505" target="_blank" rel="noopener" class="btn-wa flex-1">WhatsApp</a>
+          <a href="tel:+77008888505" class="btn-primary flex-1">Позвонить</a>
+          <a href="https://2gis.kz/almaty/search/проспект%20Турара%20Рыскулова%2079" target="_blank" rel="noopener" class="btn-ghost flex-1">2GIS</a>
+        </div>
+      </div>
+      <div class="rounded-2xl overflow-hidden border border-line min-h-[320px] bg-bg2">
+        <iframe
+          title="G AUTO на карте"
+          src="https://www.google.com/maps?q=проспект+Турара+Рыскулова+79+Алматы&output=embed"
+          class="w-full h-full min-h-[320px]" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section fade-section" id="why">
-  <div class="wrap">
-    <span class="eyebrow">Почему G AUTO</span>
-    <h2>Условия, которые не нужно объяснять</h2>
-    <div class="why-grid">
-      <div class="why-card"><b>Прозрачный кредит</b><span>Честный платёж без скрытых комиссий. Считаем при вас.</span></div>
-      <div class="why-card"><b>Программа Trade-in</b><span>Сдай свою машину в зачёт — оценим быстро и по рынку.</span></div>
-      <div class="why-card"><b>6 банков-партнёров</b><span>Подберём лучшую ставку и одобрение под твою ситуацию.</span></div>
-      <div class="why-card"><b>Шоурум в Алматы</b><span>Рыскулова 79 — приезжай на тест-драйв и осмотр.</span></div>
+<!-- ===================== FOOTER ===================== -->
+<footer class="border-t border-line py-12">
+  <div class="max-w-7.5xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+    <div>
+      <a href="#" class="font-display font-extrabold text-xl tracking-[0.08em]">G<span class="text-accent">AUTO</span></a>
+      <p class="text-mute text-sm mt-2">Dongfeng в Алматы · проспект Турара Рыскулова 79</p>
     </div>
-  </div>
-</section>
-
-<section class="section fade-section" id="how">
-  <div class="wrap">
-    <span class="eyebrow">Как получить авто</span>
-    <h2>4 шага до ключей</h2>
-    <div class="steps-grid">
-      <div class="step"><b>Оставь заявку</b><span>Онлайн-форма или WhatsApp — займёт минуту.</span></div>
-      <div class="step"><b>Согласуем модель и условия</b><span>Подберём комплектацию и платёж под бюджет.</span></div>
-      <div class="step"><b>Одобрение кредита за 1 день</b><span>Отправим заявку в банки-партнёры.</span></div>
-      <div class="step"><b>Забираешь машину</b><span>Оформление и выдача в шоуруме на Рыскулова 79.</span></div>
+    <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-dim">
+      <a href="#lineup" class="hover:text-text transition">Модели</a>
+      <a href="#calc" class="hover:text-text transition">Кредит</a>
+      <a href="#why" class="hover:text-text transition">Trade-in</a>
+      <a href="#contacts" class="hover:text-text transition">Контакты</a>
     </div>
+    <div class="text-mute text-xs">© 2026 G AUTO</div>
   </div>
-</section>
-
-<section class="section fade-section" id="lead">
-  <div class="wrap">
-    <span class="eyebrow">Онлайн-заявка</span>
-    <h2>Расскажи о себе — соберём предложение</h2>
-    <div class="lead-block">
-      <form id="leadForm" class="lead-form">
-        <div class="row">
-          <label><span>Имя</span><input type="text" name="name" placeholder="Как к вам обращаться" required></label>
-          <label><span>Телефон</span><input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></label>
-        </div>
-        <div class="row">
-          <label><span>Модель</span>
-            <select name="model">
-              <option>Aeolus Haohan</option>
-              <option>Aeolus Haoji</option>
-              <option>eπ 007</option>
-              <option>eπ 008</option>
-              <option>Voyah Free</option>
-              <option>Пока выбираю</option>
-            </select>
-          </label>
-          <label><span>Первый взнос</span>
-            <select name="downpayment">
-              <option>0%</option>
-              <option>10%</option>
-              <option>20%</option>
-              <option>30%</option>
-              <option>50%</option>
-            </select>
-          </label>
-        </div>
-        <div class="row">
-          <label><span>Trade-in</span>
-            <select name="tradein">
-              <option>Нет</option>
-              <option>Да, есть авто в зачёт</option>
-            </select>
-          </label>
-          <label><span>Удобное время для звонка</span>
-            <select name="time">
-              <option>В любое время</option>
-              <option>Утро (9–12)</option>
-              <option>День (12–17)</option>
-              <option>Вечер (17–21)</option>
-            </select>
-          </label>
-        </div>
-        <button type="submit" class="btn-submit">Отправить заявку в WhatsApp</button>
-        <p class="lead-note">Нажимая кнопку, вы соглашаетесь на обработку заявки менеджером G AUTO.</p>
-      </form>
-    </div>
-  </div>
-</section>
-
-<section class="section fade-section" id="contact">
-  <div class="wrap">
-    <span class="eyebrow">Контакты</span>
-    <h2>Приезжай в шоурум</h2>
-    <div class="loc-grid">
-      <div class="loc-card">
-        <h3>G AUTO Алматы</h3>
-        <div class="addr"><div class="pin">📍</div><div class="t">Рыскулова 79<small>Алматы, Казахстан</small></div></div>
-        <div class="addr"><div class="pin">📞</div><div class="t">+7 (700) 888-85-05<small>Звонок и WhatsApp</small></div></div>
-        <div class="cta-row">
-          <a class="btn-wa" href="https://wa.me/77008888505?text=Здравствуйте, интересует Dongfeng в G AUTO" target="_blank" rel="noopener">WhatsApp</a>
-          <a class="btn-call" href="tel:+77008888505">Позвонить</a>
-        </div>
-      </div>
-      <div class="loc-map">
-        <iframe src="https://yandex.ru/map-widget/v1/?text=Алматы%20Рыскулова%2079&z=16" loading="lazy" title="Карта · Рыскулова 79"></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <span class="logo">G<b>AUTO</b></span><br>
-  <b>Рыскулова 79</b>, Алматы · +7 (700) 888-85-05<br>
-  Dongfeng в Алматы · честный платёж · программа Trade-in
 </footer>
 
-<div class="mobile-cta">
-  <a href="https://wa.me/77008888505?text=Здравствуйте, интересует Dongfeng в G AUTO" target="_blank" rel="noopener" class="m-wa">WhatsApp</a>
-  <a href="tel:+77008888505" class="m-call">Позвонить</a>
-  <a href="#lead" class="m-lead">Заявка</a>
+<!-- ===================== MODAL ROOT + MOBILE CTA ===================== -->
+<div id="modalRoot"></div>
+
+<div id="mobileCta" class="fixed left-2 right-2 bottom-2 z-[60] grid grid-cols-3 gap-2 p-2 bg-bg2/95 backdrop-blur-xl border border-line2 rounded-2xl md:hidden">
+  <a href="https://wa.me/77008888505" target="_blank" rel="noopener" class="text-center py-3 rounded-xl bg-wa text-[#051905] font-bold text-sm">WhatsApp</a>
+  <a href="tel:+77008888505" class="text-center py-3 rounded-xl bg-accent text-white font-bold text-sm">Позвонить</a>
+  <a href="#lead" class="text-center py-3 rounded-xl bg-white/10 text-text font-bold text-sm">Заявка</a>
 </div>
 
+<!-- ===================== SCRIPT ===================== -->
 <script>
-// Sticky nav with blur on scroll
-const nav = document.getElementById('nav');
-const onScroll = () => {
-  if (window.scrollY > 30) nav.classList.add('scrolled');
-  else nav.classList.remove('scrolled');
+const CARS = {
+  haohan: {
+    name:"Aeolus Haohan", badge:"ХИТ", fuel:"БЕНЗИН",
+    price:10500000, monthly:239528,
+    sub:"1.5 Turbo · 204 л.с. · 7DCT",
+    short:"Aeolus Haohan — флагман модельного ряда Dongfeng в классе семейных кроссоверов. 1.5-литровый турбобензиновый двигатель, робот 7DCT, премиальная отделка, камеры 360° и панорамная крыша.",
+    chips:["1.5T · 204 л.с.","7DCT","Камеры 360°"],
+    gallery:["hero","front","side","rear","interior","dash"],
+    features:[
+      ["1.5 Turbo 204 л.с.","Высокая динамика без турболага, расход в смешанном цикле от 7.2 л/100 км."],
+      ["Робот 7DCT","Двойное сцепление с мокрым картером — плавность и ресурс."],
+      ["Камеры 360°","Полный обзор вокруг машины — паркуешься спокойно даже в самых тесных дворах."],
+      ["Панорамная крыша","Атмосфера салона уровня премиум-сегмента."],
+      ["18\" диски","Эффектная посадка и стабильность на трассе."],
+      ["Подогрев 4 сидений","Зимой комфортно всем — водителю, пассажиру и сзади."]
+    ],
+    specs:{ "Двигатель":"1.5 Turbo (бензин)","Мощность":"204 л.с.","Крутящий момент":"350 Нм","Коробка":"7DCT (робот, мокрое сцепление)","Привод":"Передний","Диски":"18\"","Камеры":"360°","Крыша":"Панорамная" }
+  },
+  haoji: {
+    name:"Aeolus Haoji", badge:"БЕНЗИН", fuel:"БЕНЗИН",
+    price:11500000, monthly:262341,
+    sub:"1.5 Turbo · 204 л.с. · 7DCT · кроссовер",
+    short:"Aeolus Haoji — современный кроссовер с турбобензиновым двигателем 1.5T и роботизированной коробкой 7DCT. Сдвоенный экран 12.3\", ассистент уровня L2 и просторный салон.",
+    chips:["1.5T · 204 л.с.","7DCT","Кроссовер"],
+    gallery:["hero","front","side","rear","interior","dash"],
+    features:[
+      ["1.5 Turbo 204 л.с.","Стабильная городская и трассовая динамика."],
+      ["Робот 7DCT","Плавные переключения, экономия топлива."],
+      ["Сдвоенный экран 12.3\"","Информация для водителя и мультимедиа без задержек."],
+      ["Ассистент L2","Адаптивный круиз и удержание полосы — меньше усталости на трассе."],
+      ["Просторный салон","Свободно даже для троих сзади, большой багажник."],
+      ["Современные ассистенты","Парковочные сенсоры, контроль слепых зон, предупреждение столкновений."]
+    ],
+    specs:{ "Двигатель":"1.5 Turbo (бензин)","Мощность":"204 л.с.","Коробка":"7DCT","Привод":"Передний","Экраны":"2 × 12.3\"","Ассистенты":"L2 (adaptive cruise, lane keep)" }
+  },
+  ep007: {
+    name:"eπ 007", badge:"EREV", fuel:"ГИБРИД EREV",
+    price:11500000, monthly:262341,
+    sub:"Гибрид EREV · седан · запас до 1200 км",
+    short:"Dongfeng eπ 007 — гибридный седан с расширенным запасом хода. Технология EREV, экраны 8.8\" + 15.6\", аэродинамика Cd 0.209, скрытые ручки, быстрая зарядка.",
+    chips:["EREV · 1200 км","Cd 0.209","Седан"],
+    gallery:["hero","front","side","rear","interior","dash"],
+    features:[
+      ["EREV — запас 1200 км","Электротяга + бензогенератор: никакой тревоги по дальности."],
+      ["Аэродинамика Cd 0.209","Один из лучших коэффициентов в классе — экономия топлива на трассе."],
+      ["Экраны 8.8\" + 15.6\"","Информация для водителя и большой центральный дисплей."],
+      ["Скрытые дверные ручки","Чистый силуэт и пониженный шум."],
+      ["Быстрая зарядка","От стандартной DC-зарядки — до 80% за полчаса."],
+      ["Тишина электротяги","В городе и в пробках — комфорт уровня премиум-седана."]
+    ],
+    specs:{ "Тип":"Гибрид EREV","Кузов":"Седан","Запас хода":"до 1200 км","Cd":"0.209","Экраны":"8.8\" водитель + 15.6\" центр","Зарядка":"Быстрая DC" }
+  },
+  ep008: {
+    name:"eπ 008", badge:"6 МЕСТ", fuel:"ГИБРИД EREV",
+    price:16500000, monthly:376402,
+    sub:"Гибрид EREV · SUV · 6 мест · запас до 1300 км",
+    short:"Dongfeng eπ 008 — семейный гибридный SUV с шестью местами и запасом хода до 1300 км. 237 кВт мощности, 0–100 за 7.2 сек, диски 20–21\".",
+    chips:["EREV · 1300 км","237 кВт","6 мест"],
+    gallery:["hero","front","side","rear","interior","dash"],
+    features:[
+      ["EREV — запас 1300 км","Долгие поездки без зарядных станций — особенно по Казахстану."],
+      ["237 кВт мощности","Уверенный обгон и динамичный разгон даже с полной загрузкой."],
+      ["0–100 за 7.2 сек","Спортивная динамика для семейного SUV."],
+      ["6 мест","Полноценный третий ряд для всей семьи."],
+      ["Диски 20–21\"","Дорожный просвет и эстетика премиум-класса."],
+      ["Премиум-салон","Качественная отделка, раздельный климат, продуманная эргономика."]
+    ],
+    specs:{ "Тип":"Гибрид EREV","Кузов":"SUV","Места":"6","Запас хода":"до 1300 км","Мощность":"237 кВт","Крутящий момент":"447 Нм","Разгон 0–100":"7.2 сек","Диски":"20–21\"" }
+  },
+  voyah: {
+    name:"Voyah Free", badge:"ТОП", fuel:"ГИБРИД EREV",
+    price:17500000, monthly:399214,
+    sub:"Премиум SUV E-сегмента · EREV · AWD/4WD",
+    short:"Voyah Free — премиум SUV E-сегмента уровня Audi и BMW. Гибридная установка EREV, полный привод, премиум-салон, панорама, адаптивный круиз.",
+    chips:["EREV · AWD","Премиум E-сегмент","Простор"],
+    gallery:["hero","front","side","rear","interior","dash"],
+    features:[
+      ["Премиум SUV E-сегмента","Размерный класс уровня Audi Q7 / BMW X5."],
+      ["Гибрид EREV","Сочетание электротяги и большого запаса хода."],
+      ["Полный привод AWD/4WD","Уверенность на любом покрытии."],
+      ["Адаптивный круиз","Длительные поездки превращаются в отдых."],
+      ["Премиум-салон","Натуральные материалы, отделка алькантарой, продуманные детали."],
+      ["Панорамная крыша","Больше света в салоне, премиальное ощущение пространства."]
+    ],
+    specs:{ "Тип":"Гибрид EREV","Класс":"Премиум SUV E","Привод":"AWD / 4WD","Уровень":"Audi / BMW премиум-сегмента" }
+  }
 };
-window.addEventListener('scroll', onScroll, { passive: true });
+
+const ORDER = ["haohan","haoji","ep007","ep008","voyah"];
+const fmt  = n => new Intl.NumberFormat('ru-RU').format(Math.round(n)) + ' ₸';
+const fmt2 = n => new Intl.NumberFormat('ru-RU').format(Math.round(n)) + ' ₸/мес';
+
+/* ---------- Build cards ---------- */
+const cardGrid = document.getElementById('cardGrid');
+cardGrid.innerHTML = ORDER.map((id, i) => {
+  const c = CARS[id];
+  return `
+  <button data-car="${id}" data-reveal data-d="${(i%3)+1}" class="car-card group text-left relative overflow-hidden rounded-2xl border border-line bg-bg2 transition-all duration-500 hover:border-accent/50 hover:-translate-y-1">
+    <div class="relative aspect-[16/10] overflow-hidden">
+      <span class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-accent/90 backdrop-blur text-xs font-bold tracking-wider text-white">${c.badge}</span>
+      <div class="card-glow absolute -inset-px z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" style="background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%), rgba(0,102,255,0.18), transparent 60%);"></div>
+      <img src="images/models/${id}.jpg" alt="${c.name}" loading="lazy"
+           class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+           onerror="this.style.display='none'; this.parentElement.classList.add('no-img'); this.parentElement.setAttribute('data-name','${c.name.toUpperCase()}');">
+    </div>
+    <div class="p-7 flex flex-col gap-3">
+      <h3 class="font-display font-bold text-2xl tracking-tightest">${c.name}</h3>
+      <p class="text-dim text-sm">${c.fuel} · ${c.sub}</p>
+      <div class="mt-2">
+        <div class="text-mute text-[11px] tracking-[0.15em] uppercase font-semibold">Цена</div>
+        <div class="font-display text-2xl mt-1">от <span class="text-text">${fmt(c.price)}</span></div>
+      </div>
+      <div>
+        <div class="text-accent text-[11px] tracking-[0.15em] uppercase font-semibold mt-1">Платёж от</div>
+        <div class="font-display text-xl text-accent">${fmt2(c.monthly)}</div>
+      </div>
+      <div class="flex flex-wrap gap-1.5 mt-2">
+        ${c.chips.map(ch => `<span class="px-2.5 py-1 text-[11px] rounded-full border border-line2 text-dim">${ch}</span>`).join('')}
+      </div>
+      <div class="mt-4 pt-4 border-t border-line flex items-center justify-between text-sm">
+        <span class="text-accent font-semibold inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">Подробнее <span>→</span></span>
+        <span class="text-mute">Рассчитать</span>
+      </div>
+    </div>
+  </button>`;
+}).join('');
+
+/* ---------- Why grid ---------- */
+const WHY = [
+  ["0%","Первоначальный взнос","Можно стартовать без первого взноса — по одобренным программам."],
+  ["84","Месяца рассрочки","Длинный срок кредита делает ежемесячный платёж комфортным."],
+  ["6","Банков-партнёров","Подаём заявку сразу в несколько банков и выбираем лучшую ставку."],
+  ["Trade-in","Программа Trade-in","Сдайте свою машину в зачёт стоимости новой — быстро и честно."],
+  ["₸","Честный платёж","Никаких скрытых комиссий — итоговую сумму называем до подписания."],
+  ["Алматы","Шоурум в Алматы","Приезжайте на проспект Турара Рыскулова 79 — покажем и проведём тест-драйв."]
+];
+document.getElementById('whyGrid').innerHTML = WHY.map((w,i) => `
+  <div data-reveal data-d="${(i%3)+1}" class="p-7 rounded-2xl border border-line bg-bg2 hover:border-accent/40 transition-colors">
+    <div class="font-display font-bold text-3xl text-accent mb-3 tracking-tightest">${w[0]}</div>
+    <div class="font-semibold text-lg mb-1.5">${w[1]}</div>
+    <div class="text-dim text-sm leading-relaxed">${w[2]}</div>
+  </div>`).join('');
+
+/* ---------- Modal ---------- */
+function openCarModal(carId){
+  const c = CARS[carId];
+  if(!c) return;
+  const gallery = (c.gallery||["hero"]).map((role,i) => `
+    <div class="relative ${i===0?'col-span-2 aspect-[16/9]':'aspect-[4/3]'} overflow-hidden rounded-xl bg-bg3">
+      <img src="images/${carId}/${role}.jpg" alt="${c.name} ${role}" loading="lazy"
+           class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+           onerror="this.closest('div').style.display='none';">
+    </div>`).join('');
+
+  const html = `
+  <div class="fixed inset-0 z-[100] flex items-end md:items-center justify-center" id="modalOverlay">
+    <div class="absolute inset-0 bg-black/85 backdrop-blur-sm" onclick="closeCarModal()"></div>
+    <div class="modal-card relative bg-bg2 border border-line2 rounded-t-3xl md:rounded-3xl max-w-5xl w-full max-h-[92vh] overflow-y-auto m-0 md:m-4">
+      <button aria-label="Закрыть" class="fixed md:absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/50 backdrop-blur text-text flex items-center justify-center hover:bg-accent transition-colors" onclick="closeCarModal()">✕</button>
+
+      <div class="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-t-3xl no-img" data-name="${c.name.toUpperCase()}">
+        <img src="images/${carId}/hero.jpg" alt="${c.name}" class="w-full h-full object-cover relative z-[1]" onerror="this.style.display='none';" />
+        <div class="absolute inset-0 z-[2] bg-gradient-to-t from-bg2 via-bg2/40 to-transparent"></div>
+        <div class="absolute z-[3] bottom-6 left-6 md:bottom-10 md:left-10">
+          <span class="inline-block px-3 py-1 rounded-full bg-accent text-white text-xs font-bold tracking-wider mb-3">${c.badge}</span>
+          <h2 class="font-display font-extrabold text-3xl md:text-5xl tracking-tightest">${c.name}</h2>
+          <p class="text-dim text-sm md:text-base mt-2">${c.fuel} · ${c.sub}</p>
+        </div>
+      </div>
+
+      <div class="p-6 md:p-10 grid md:grid-cols-3 gap-6 md:gap-10">
+        <div class="md:col-span-2 space-y-7">
+          <p class="text-text/90 text-lg leading-relaxed">${c.short}</p>
+
+          <div>
+            <div class="eyebrow" style="margin-bottom:.75rem">Главные преимущества</div>
+            <div class="grid sm:grid-cols-2 gap-3">
+              ${c.features.map(([t,d]) => `
+                <div class="p-4 rounded-xl border border-line bg-bg3 hover:border-accent/50 transition-colors">
+                  <div class="text-accent font-bold mb-1.5">${t}</div>
+                  <div class="text-dim text-sm leading-relaxed">${d}</div>
+                </div>`).join('')}
+            </div>
+          </div>
+
+          <div>
+            <div class="eyebrow" style="margin-bottom:.75rem">Галерея</div>
+            <div class="grid grid-cols-2 gap-3">${gallery}</div>
+          </div>
+
+          <div>
+            <div class="eyebrow" style="margin-bottom:.75rem">Характеристики</div>
+            <div class="rounded-xl border border-line divide-y divide-line">
+              ${Object.entries(c.specs).map(([k,v]) => `
+                <div class="flex justify-between gap-4 p-3.5 text-sm">
+                  <span class="text-mute">${k}</span>
+                  <span class="text-text font-semibold text-right">${v}</span>
+                </div>`).join('')}
+            </div>
+          </div>
+        </div>
+
+        <aside class="md:col-span-1 space-y-4 md:sticky md:top-6 md:self-start">
+          <div class="p-5 rounded-2xl border border-accent/30 bg-accent/5">
+            <div class="text-mute text-[11px] tracking-[0.15em] uppercase font-semibold">Цена</div>
+            <div class="font-display text-2xl mt-1">от ${fmt(c.price)}</div>
+            <div class="text-accent text-[11px] tracking-[0.15em] uppercase font-semibold mt-4">Платёж от</div>
+            <div class="font-display text-2xl text-accent">${fmt2(c.monthly)}</div>
+            <div class="text-mute text-xs mt-2">при ставке от 21%</div>
+          </div>
+          <a href="#calc" onclick="closeCarModal()" class="btn-primary w-full">Рассчитать платёж</a>
+          <a href="https://wa.me/77008888505?text=${encodeURIComponent('Здравствуйте! Интересует '+c.name)}" target="_blank" rel="noopener" class="btn-wa w-full">WhatsApp</a>
+          <a href="#lead" onclick="closeCarModal()" class="btn-ghost w-full">Оставить заявку</a>
+        </aside>
+      </div>
+    </div>
+  </div>`;
+
+  document.getElementById('modalRoot').innerHTML = html;
+  document.body.style.overflow = 'hidden';
+  requestAnimationFrame(() => {
+    const o = document.getElementById('modalOverlay');
+    if(o) o.classList.add('modal-on');
+  });
+}
+function closeCarModal(){
+  document.getElementById('modalRoot').innerHTML = '';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeCarModal(); });
+
+/* ---------- Bind cards (modal + glow) ---------- */
+document.querySelectorAll('[data-car]').forEach(card => {
+  card.addEventListener('click', () => openCarModal(card.dataset.car));
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+});
+
+/* ---------- Hero stagger ---------- */
+document.querySelectorAll('[data-fade]').forEach((el,i) => {
+  setTimeout(() => el.classList.add('on'), 150 + i*180);
+});
+
+/* ---------- Sticky nav ---------- */
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
+window.addEventListener('scroll', onScroll, { passive:true });
 onScroll();
 
-// Hero parallax (works on iOS)
-const heroBg = document.getElementById('heroBg');
+/* ---------- Hero parallax ---------- */
+const heroImg = document.getElementById('heroImg');
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
-  if (heroBg && y < window.innerHeight) {
-    heroBg.style.transform = 'translate3d(0,' + (y * 0.25) + 'px,0) scale(' + (1 + y * 0.0003) + ')';
+  if(heroImg && y < window.innerHeight){
+    heroImg.style.transform = 'translate3d(0,' + (y*0.3) + 'px,0) scale(' + (1 + y*0.0004) + ')';
   }
-}, { passive: true });
+}, { passive:true });
 
-// Section fade-in on scroll
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 });
-document.querySelectorAll('.fade-section').forEach(s => io.observe(s));
+/* ---------- Reveal on scroll ---------- */
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold:0.12 });
+document.querySelectorAll('[data-reveal]').forEach(s => io.observe(s));
 
-// Calculator — 21% rate
+/* ---------- Calculator ---------- */
 const RATE = 0.21;
-const prices = [10500000, 11500000, 11500000, 16500000, 17500000];
+const prices = [10500000,11500000,11500000,16500000,17500000];
 const names  = ["Aeolus Haohan","Aeolus Haoji","eπ 007","eπ 008","Voyah Free"];
-const fmt = n => new Intl.NumberFormat('ru-RU').format(Math.round(n)) + " ₸";
-const monthly = (s, m) => { const r = RATE/12; return s*r/(1 - Math.pow(1+r, -m)); };
+const monthly = (s,m) => { const r = RATE/12; return s*r/(1-Math.pow(1+r,-m)); };
 const $ = id => document.getElementById(id);
-function calc() {
+function calc(){
   const i = +$('model').value, p = prices[i], dpPct = +$('dp').value, term = +$('term').value;
-  const dpAmt = p * dpPct / 100, sum = p - dpAmt, pay = monthly(sum, term);
+  const dpAmt = p*dpPct/100, sum = p-dpAmt, pay = monthly(sum, term);
   $('mLbl').textContent = names[i];
-  $('dpLbl').textContent = dpPct + "% · " + fmt(dpAmt);
-  $('tLbl').textContent = term + " мес";
-  $('pay').textContent = fmt(pay);
-  $('detail').textContent = names[i] + " · кредит " + fmt(sum) + " · " + term + " мес";
+  $('dpLbl').textContent = dpPct + '% · ' + fmt(dpAmt);
+  $('tLbl').textContent = term + ' мес';
+  $('pay').textContent = 'от ' + fmt2(pay);
+  $('detail').textContent = names[i] + ' · сумма кредита ' + fmt(sum) + ' · ' + term + ' мес';
   $('calcWaBtn').dataset.text =
-    "Заявка с расчётом G AUTO\n" +
-    "Модель: " + names[i] + "\n" +
-    "Цена: " + fmt(p) + "\n" +
-    "Первый взнос: " + dpPct + "% · " + fmt(dpAmt) + "\n" +
-    "Срок: " + term + " мес\n" +
-    "Платёж от: " + fmt(pay);
+    'Заявка с расчётом G AUTO\n' +
+    'Модель: ' + names[i] + '\n' +
+    'Цена: ' + fmt(p) + '\n' +
+    'Первоначальный взнос: ' + dpPct + '% · ' + fmt(dpAmt) + '\n' +
+    'Срок: ' + term + ' мес\n' +
+    'Сумма кредита: ' + fmt(sum) + '\n' +
+    'Платёж от: ' + fmt2(pay);
 }
 ['model','dp','term'].forEach(id => $(id).addEventListener('input', calc));
-$('calcWaBtn').addEventListener('click', (e) => {
-  e.preventDefault();
+$('calcWaBtn').addEventListener('click', () => {
   window.open('https://wa.me/77008888505?text=' + encodeURIComponent($('calcWaBtn').dataset.text), '_blank');
 });
 calc();
 
-// Lead form -> WhatsApp
-$('leadForm').addEventListener('submit', function(e) {
+/* ---------- Lead form ---------- */
+$('leadForm').addEventListener('submit', e => {
   e.preventDefault();
-  const fd = new FormData(this);
+  const fd = new FormData(e.target);
   const name = (fd.get('name')||'').toString().trim();
   const phone = (fd.get('phone')||'').toString().trim();
-  if (!name || !phone) { alert('Заполни имя и телефон'); return; }
+  if(!name || !phone){ alert('Заполните имя и телефон'); return; }
   const text =
-    'Заявка с сайта G AUTO\n' +
+    'Здравствуйте! Хочу оставить заявку в G AUTO.\n' +
     'Имя: ' + name + '\n' +
     'Телефон: ' + phone + '\n' +
     'Модель: ' + (fd.get('model')||'') + '\n' +
-    'Первый взнос: ' + (fd.get('downpayment')||'') + '\n' +
+    'Первоначальный взнос: ' + (fd.get('downpayment')||'') + '\n' +
     'Trade-in: ' + (fd.get('tradein')||'') + '\n' +
-    'Удобное время: ' + (fd.get('time')||'');
+    'Удобное время связи: ' + (fd.get('time')||'');
   window.open('https://wa.me/77008888505?text=' + encodeURIComponent(text), '_blank');
 });
 </script>
-
-</body></html>
+</body>
+</html>

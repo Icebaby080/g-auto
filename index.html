@@ -161,92 +161,194 @@ tailwind.config = {
     -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 100%, black 0%, transparent 80%);
   }
   .showroom-car { animation: carPulse 6s ease-in-out infinite; }
+
+  /* ===================== v8 PREMIUM LAYER ===================== */
+  :root{
+    --shadow-lift: 0 30px 60px -20px rgba(0,0,0,0.5);
+    --shadow-glow-blue: 0 0 40px -10px rgba(0,102,255,0.3);
+    --shadow-card: 0 10px 30px -10px rgba(0,0,0,0.4);
+    --gold: #d8b46a;
+  }
+
+  /* Glassmorphism card */
+  .glass-card{
+    background: rgba(20,20,25,0.40);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 20px 22px;
+    box-shadow: 0 8px 32px -8px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+    transition: transform .5s cubic-bezier(.22,.61,.36,1), border-color .3s ease;
+  }
+  .glass-card:hover{ transform: translateY(-3px); border-color: rgba(255,255,255,0.18); }
+
+  /* Cinematic hero photo grade */
+  #heroImg{ filter: contrast(1.05) saturate(1.05) brightness(0.96); }
+
+  /* Premium model cards (also used by [data-car] cards) */
+  .car-card{
+    background: linear-gradient(180deg, rgba(20,20,25,0.55) 0%, rgba(13,13,18,0.9) 100%);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: transform .5s cubic-bezier(.22,.61,.36,1), border-color .4s ease, box-shadow .5s ease;
+  }
+  .car-card:hover{
+    transform: translateY(-8px);
+    border-color: rgba(255,255,255,0.18);
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,102,255,0.2), 0 0 40px -10px rgba(0,102,255,0.3);
+  }
+
+  /* Refined buttons */
+  .btn-primary{ position:relative; overflow:hidden; box-shadow:0 12px 32px -10px rgba(0,102,255,.5); }
+  .btn-primary::after{ content:""; position:absolute; inset:0; background:linear-gradient(135deg, rgba(255,255,255,0.18) 0%, transparent 55%); opacity:0; transition:opacity .35s ease; }
+  .btn-primary:hover{ box-shadow:0 18px 44px -10px rgba(0,102,255,.65), inset 0 1px 0 rgba(255,255,255,0.15); }
+  .btn-primary:hover::after{ opacity:1; }
+  .btn-ghost{ backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); background:rgba(255,255,255,0.04); border-color:rgba(255,255,255,0.18); }
+
+  /* Golden focus on lead/calc inputs */
+  #leadForm input:focus, #leadForm select:focus, #calcPanel select:focus, #calcPanel input:focus{
+    border-color: rgba(216,180,106,0.65);
+    box-shadow: 0 0 0 3px rgba(216,180,106,0.14);
+  }
+
+  /* Section heading upscale */
+  .section-h2{ font-size:clamp(40px,6vw,80px); }
+
+  /* Why-grid icon */
+  .why-ico{ width:44px; height:44px; border-radius:13px; display:flex; align-items:center; justify-content:center;
+    background:rgba(0,102,255,0.10); border:1px solid rgba(0,102,255,0.22); color:#5b9bff; }
+  .why-ico svg{ width:22px; height:22px; }
+
+  /* Trade-in ghost numerals */
+  .ti-num{ font-family:'Unbounded',sans-serif; font-weight:800; line-height:.9;
+    font-size:clamp(56px,8vw,96px); letter-spacing:-0.04em;
+    background:linear-gradient(180deg, rgba(255,255,255,0.16) 0%, rgba(0,102,255,0.10) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+  /* Footer */
+  .foot-link{ color:#a6a6b1; transition:color .25s ease; }
+  .foot-link:hover{ color:#f5f5f7; }
+  .foot-social{ width:38px; height:38px; border-radius:9999px; display:flex; align-items:center; justify-content:center;
+    background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.10); transition:all .3s ease; }
+  .foot-social:hover{ background:rgba(255,255,255,0.09); border-color:rgba(255,255,255,0.22); transform:translateY(-2px); }
+  .foot-social svg{ width:17px; height:17px; }
 </style>
 </head>
 <body class="font-sans">
 
 <!-- ===================== NAV ===================== -->
 <nav id="nav" class="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 md:px-12 py-5">
-  <a href="#" class="font-display font-extrabold text-xl tracking-[0.08em]">G<span class="text-accent">AUTO</span></a>
-  <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-dim">
-    <a href="#lineup" class="hover:text-text transition">Модели</a>
-    <a href="#calc" class="hover:text-text transition">Кредит</a>
-    <a href="#tradein" class="hover:text-text transition">Trade-in</a>
-    <a href="#contacts" class="hover:text-text transition">Контакты</a>
+  <a href="#" class="flex flex-col leading-none">
+    <span class="font-display font-extrabold text-[14px] tracking-[0.18em] text-white/90">DONGFENG</span>
+    <span class="font-display font-extrabold text-[14px] tracking-[0.18em] text-accent">AEOLUS</span>
+  </a>
+  <div class="hidden md:flex items-center gap-7 text-[13px] font-semibold text-white/70">
+    <a href="#lineup"   class="hover:text-white transition tracking-wide uppercase">Models</a>
+    <a href="#calc"     class="hover:text-white transition tracking-wide uppercase">Buy</a>
+    <a href="#calc"     class="hover:text-white transition tracking-wide uppercase">Finance</a>
+    <a href="#tradein"  class="hover:text-white transition tracking-wide uppercase">Trade-in</a>
+    <a href="#why"      class="hover:text-white transition tracking-wide uppercase">About</a>
+    <a href="#contacts" class="hover:text-white transition tracking-wide uppercase">Contacts</a>
   </div>
-  <a href="tel:+77008888505" class="text-sm font-semibold py-2.5 px-5 border border-line2 rounded-full hover:bg-white/5 transition">+7 (700) 888-85-05</a>
+  <div class="flex items-center gap-3">
+    <a href="tel:+77008888505" class="hidden sm:flex text-[12px] font-semibold text-white/90 hover:text-white transition tracking-wide">+7 700 888 8505</a>
+    <a href="https://wa.me/77008888505" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 backdrop-blur border border-white/10 flex items-center justify-center transition group" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-white/80 group-hover:fill-white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.65 4.13 1.88 5.83L2 22l4.36-1.97c1.66.92 3.61 1.44 5.68 1.44 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.91-9.91-9.91zm0 18.13c-1.85 0-3.66-.5-5.24-1.45l-.37-.22-3.07 1.39 1.4-3.01-.23-.39c-1.04-1.67-1.59-3.61-1.59-5.6 0-5.04 4.1-9.13 9.13-9.13s9.13 4.1 9.13 9.13c0 5.04-4.1 9.13-9.13 9.13z"/></svg>
+    </a>
+  </div>
 </nav>
 
 <!-- ===================== HERO ===================== -->
-<header id="hero" class="relative min-h-screen w-full overflow-hidden flex items-end pb-28 md:pb-40 grain">
+<header id="hero" class="relative w-full overflow-hidden min-h-screen grain">
+  <!-- Full-bleed photo -->
   <div id="heroBg" class="absolute inset-0 z-0">
-    <img id="heroImg" src="images/hero.jpg" alt="" class="w-full h-full object-cover opacity-60"
+    <img id="heroImg" src="images/hero.jpg" alt="Aeolus Haohan" class="w-full h-full object-cover object-center"
          onerror="this.style.display='none'; this.parentElement.classList.add('no-hero');" />
-    <!-- Усиленный gradient overlay (2 слоя) -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-bg z-[1]"></div>
-    <div class="absolute inset-0 bg-gradient-to-tr from-bg via-transparent to-transparent z-[1]"></div>
-    <!-- Accent glow правый верх -->
-    <div class="absolute top-[-10%] right-[-10%] w-[60vw] h-[60vh] bg-accent/[0.08] blur-[120px] rounded-full"></div>
-    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent z-[1]"></div>
-    <!-- Light sweep -->
-    <div class="hero-sweep"></div>
-    <!-- Film grain (SVG feTurbulence) -->
-    <svg class="absolute inset-0 w-full h-full opacity-[0.08] pointer-events-none mix-blend-overlay z-[1]" aria-hidden="true">
-      <filter id="heroNoise"><feTurbulence type="fractalNoise" baseFrequency="0.9" /></filter>
-      <rect width="100%" height="100%" filter="url(#heroNoise)"/>
-    </svg>
   </div>
 
-  <div class="relative z-10 max-w-7.5xl mx-auto px-6 md:px-12 w-full">
-    <span data-fade class="inline-flex items-center gap-2 text-xs tracking-[0.3em] font-bold text-accent mb-6">
-      <span class="w-8 h-px bg-accent"></span>G AUTO · АЛМАТЫ
-    </span>
-    <h1 data-fade class="font-display font-extrabold text-[clamp(40px,8vw,108px)] leading-[0.92] tracking-tightest mb-8">
-      Dongfeng <span class="bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent">Experience Center</span>
-    </h1>
-    <p data-fade class="text-dim text-[clamp(18px,1.8vw,24px)] max-w-2xl mb-3">
-      Технологичные автомобили с честным платежом.
-    </p>
-    <p data-fade class="text-mute text-[clamp(13px,1.1vw,15px)] max-w-xl mb-10 leading-relaxed">
-      Первый взнос от 0%, кредит до 84 месяцев, 10 банков-партнёров и программа Trade-in за 1 день.
-    </p>
-    <div data-fade class="flex flex-wrap gap-4">
-      <a href="#lineup" class="btn-primary">Смотреть модели</a>
-      <a href="#lead" class="btn-ghost">Записаться на тест-драйв</a>
+  <!-- Cinematic overlays: 4 слоя глубины -->
+  <div class="absolute inset-0 z-[1] pointer-events-none" style="background: radial-gradient(ellipse 90% 70% at 50% 50%, transparent 0%, transparent 48%, rgba(0,0,0,0.45) 100%);"></div>
+  <div class="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-b from-black/55 via-transparent to-black/95"></div>
+  <div class="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-r from-black/55 via-transparent to-black/25"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent z-[2]"></div>
+  <div class="hero-sweep"></div>
+  <svg class="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none mix-blend-overlay z-[2]" aria-hidden="true">
+    <filter id="heroNoise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" /></filter>
+    <rect width="100%" height="100%" filter="url(#heroNoise)"/>
+  </svg>
+
+  <!-- Content -->
+  <div class="relative z-[10] min-h-screen flex flex-col">
+    <div class="h-24 md:h-32"></div>
+
+    <div class="flex-1 flex items-end pb-16 md:pb-24">
+      <div class="max-w-7.5xl mx-auto px-6 md:px-12 w-full">
+        <div class="grid md:grid-cols-12 gap-6 md:gap-12 items-end">
+
+          <!-- Copy -->
+          <div class="md:col-span-7 lg:col-span-7">
+            <div data-fade class="mb-6">
+              <span class="inline-block px-3 py-1 rounded-full text-[10px] tracking-[0.3em] uppercase font-bold border border-white/20 backdrop-blur text-white/80">DONGFENG · AEOLUS</span>
+            </div>
+            <h1 data-fade class="font-display font-extrabold leading-[0.88] tracking-tightest mb-6 text-white" style="font-size: clamp(64px, 14vw, 180px);">HAOHAN</h1>
+            <p data-fade class="mb-3 text-white/90 font-display font-bold" style="font-size: clamp(22px, 3vw, 38px); letter-spacing:-0.01em;">
+              204 л.с. <span class="text-white/50">·</span> Твой уровень.
+            </p>
+            <p data-fade class="text-white/65 mb-10 max-w-xl text-base md:text-lg">
+              Premium crossover нового поколения.
+            </p>
+            <div data-fade class="flex flex-wrap gap-3">
+              <a href="#lead" class="btn-primary">Получить предложение</a>
+              <a href="#calc" class="btn-ghost">Рассчитать кредит</a>
+            </div>
+          </div>
+
+          <!-- Glass cards -->
+          <div class="md:col-span-5 lg:col-span-5">
+            <div data-fade class="grid grid-cols-2 md:grid-cols-1 gap-3 md:gap-4 md:max-w-[280px] md:ml-auto">
+              <div class="glass-card">
+                <div class="text-[10px] tracking-[0.25em] uppercase font-bold text-white/55 mb-2">ГАРАНТИЯ</div>
+                <div class="font-display font-bold text-3xl text-white">3 года</div>
+                <div class="text-white/55 text-sm mt-1">или 100 000 км</div>
+              </div>
+              <div class="glass-card">
+                <div class="text-[10px] tracking-[0.25em] uppercase font-bold text-white/55 mb-2">КРЕДИТ</div>
+                <div class="font-display font-bold text-3xl text-white">от 0%</div>
+                <div class="text-white/55 text-sm mt-1">до 84 месяцев</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
 
-    <div data-fade class="mt-12 grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-0">
-      <div class="md:px-6 md:border-r border-line2 last:border-0">
-        <div class="font-display text-2xl md:text-3xl text-text">0%</div>
-        <div class="text-mute text-xs uppercase tracking-wider mt-1">первый взнос</div>
-      </div>
-      <div class="md:px-6 md:border-r border-line2 last:border-0">
-        <div class="font-display text-2xl md:text-3xl text-text">84 мес</div>
-        <div class="text-mute text-xs uppercase tracking-wider mt-1">кредит</div>
-      </div>
-      <div class="md:px-6 md:border-r border-line2 last:border-0">
-        <div class="font-display text-2xl md:text-3xl text-text">10 банков</div>
-        <div class="text-mute text-xs uppercase tracking-wider mt-1">партнёров</div>
-      </div>
-      <div class="md:px-6 md:border-r border-line2 last:border-0">
-        <div class="font-display text-2xl md:text-3xl text-text">Trade-in</div>
-        <div class="text-mute text-xs uppercase tracking-wider mt-1">за 1 день</div>
-      </div>
-      <div class="md:px-6 md:border-r border-line2 last:border-0">
-        <div class="font-display text-2xl md:text-3xl text-text">5 моделей</div>
-        <div class="text-mute text-xs uppercase tracking-wider mt-1">в наличии</div>
+    <!-- Stats ribbon -->
+    <div data-fade class="border-t border-white/10 backdrop-blur-md bg-black/15">
+      <div class="max-w-7.5xl mx-auto px-6 md:px-12 py-4 md:py-5 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 text-white">
+        <div class="md:px-6 md:border-r md:border-white/10">
+          <div class="font-display text-xl md:text-2xl">10 банков</div>
+          <div class="text-white/55 text-[11px] uppercase tracking-wider">партнёров</div>
+        </div>
+        <div class="md:px-6 md:border-r md:border-white/10">
+          <div class="font-display text-xl md:text-2xl">84 месяца</div>
+          <div class="text-white/55 text-[11px] uppercase tracking-wider">кредит</div>
+        </div>
+        <div class="md:px-6 md:border-r md:border-white/10">
+          <div class="font-display text-xl md:text-2xl">1 день</div>
+          <div class="text-white/55 text-[11px] uppercase tracking-wider">Trade-in</div>
+        </div>
+        <div class="md:px-6">
+          <div class="font-display text-xl md:text-2xl">5 моделей</div>
+          <div class="text-white/55 text-[11px] uppercase tracking-wider">в шоуруме</div>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 opacity-50 hidden md:flex flex-col items-center gap-2">
-    <span class="text-[10px] tracking-[0.3em] text-mute uppercase">Скролл</span>
-    <div class="w-px h-12 bg-gradient-to-b from-text/40 to-transparent"></div>
   </div>
 </header>
 
 <!-- ===================== LINEUP ===================== -->
-<section id="lineup" class="py-24 md:py-32">
+<section id="lineup" class="py-28 md:py-40">
   <div class="max-w-7.5xl mx-auto px-6 md:px-12">
     <div data-reveal>
       <span class="eyebrow">Модельный ряд</span>
@@ -257,7 +359,7 @@ tailwind.config = {
 </section>
 
 <!-- ===================== DIGITAL SHOWROOM ===================== -->
-<section id="showroom" class="relative overflow-hidden py-24 md:py-32 bg-bg2 border-y border-line" data-reveal>
+<section id="showroom" class="relative overflow-hidden py-28 md:py-40 bg-bg2 border-y border-line" data-reveal>
   <div class="max-w-7.5xl mx-auto px-6 md:px-12 mb-12 md:mb-16">
     <span class="eyebrow">DIGITAL SHOWROOM</span>
     <h2 class="section-h2">Прокатись виртуально</h2>
@@ -301,45 +403,45 @@ tailwind.config = {
 </section>
 
 <!-- ===================== TRADE-IN ===================== -->
-<section id="tradein" class="py-24 md:py-32" data-reveal>
+<section id="tradein" class="py-28 md:py-40" data-reveal>
   <div class="max-w-7.5xl mx-auto px-6 md:px-12">
     <span class="eyebrow">TRADE-IN</span>
     <h2 class="section-h2">Программа Trade-in за 1 день</h2>
     <p class="text-dim text-base md:text-lg max-w-2xl mb-12 md:mb-16">Оценим ваш автомобиль и зачтём его стоимость при покупке нового Dongfeng.</p>
-    <div class="grid md:grid-cols-4 gap-4">
-      <div class="p-6 rounded-2xl border border-line bg-bg2">
-        <div class="font-display text-accent text-3xl mb-3">01</div>
-        <div class="font-bold mb-1">Предварительная оценка</div>
-        <div class="text-dim text-sm">Отправь фото и пробег в WhatsApp — назовём предварительную стоимость.</div>
+    <div class="grid md:grid-cols-4 gap-4 md:gap-5">
+      <div class="car-card rounded-2xl p-7 md:p-8">
+        <div class="ti-num mb-4">01</div>
+        <div class="font-bold text-lg mb-1.5">Предварительная оценка</div>
+        <div class="text-dim text-sm leading-relaxed">Отправь фото и пробег в WhatsApp — назовём предварительную стоимость.</div>
       </div>
-      <div class="p-6 rounded-2xl border border-line bg-bg2">
-        <div class="font-display text-accent text-3xl mb-3">02</div>
-        <div class="font-bold mb-1">Осмотр автомобиля</div>
-        <div class="text-dim text-sm">Приезжай в шоурум — проведём детальный осмотр.</div>
+      <div class="car-card rounded-2xl p-7 md:p-8">
+        <div class="ti-num mb-4">02</div>
+        <div class="font-bold text-lg mb-1.5">Осмотр автомобиля</div>
+        <div class="text-dim text-sm leading-relaxed">Приезжай в шоурум — проведём детальный осмотр.</div>
       </div>
-      <div class="p-6 rounded-2xl border border-line bg-bg2">
-        <div class="font-display text-accent text-3xl mb-3">03</div>
-        <div class="font-bold mb-1">Зачёт в первый взнос</div>
-        <div class="text-dim text-sm">Стоимость зачитывается в счёт первого взноса.</div>
+      <div class="car-card rounded-2xl p-7 md:p-8">
+        <div class="ti-num mb-4">03</div>
+        <div class="font-bold text-lg mb-1.5">Зачёт в первый взнос</div>
+        <div class="text-dim text-sm leading-relaxed">Стоимость зачитывается в счёт первого взноса.</div>
       </div>
-      <div class="p-6 rounded-2xl border border-line bg-bg2">
-        <div class="font-display text-accent text-3xl mb-3">04</div>
-        <div class="font-bold mb-1">Оформление новой машины</div>
-        <div class="text-dim text-sm">Завершаем сделку и уезжаешь на новом Dongfeng.</div>
+      <div class="car-card rounded-2xl p-7 md:p-8">
+        <div class="ti-num mb-4">04</div>
+        <div class="font-bold text-lg mb-1.5">Оформление новой машины</div>
+        <div class="text-dim text-sm leading-relaxed">Завершаем сделку и уезжаешь на новом Dongfeng.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ===================== CALC ===================== -->
-<section id="calc" class="py-24 md:py-32 bg-bg2 border-y border-line">
+<section id="calc" class="py-28 md:py-40 bg-bg2 border-y border-line">
   <div class="max-w-7.5xl mx-auto px-6 md:px-12">
     <div data-reveal>
       <span class="eyebrow">Калькулятор</span>
       <h2 class="section-h2">Рассчитай платёж</h2>
     </div>
     <div class="grid md:grid-cols-5 gap-6 md:gap-8" data-reveal>
-      <div class="md:col-span-3 space-y-6 p-6 md:p-10 rounded-2xl border border-line bg-bg3">
+      <div id="calcPanel" class="glass-card md:col-span-3 space-y-6 p-6 md:p-10">
         <div>
           <label class="flex justify-between text-sm text-dim mb-2">Модель <span id="mLbl" class="text-text font-semibold">Aeolus Haohan</span></label>
           <select id="model" class="w-full bg-bg border border-line2 rounded-xl px-4 py-3.5 text-sm focus:border-accent focus:outline-none transition">
@@ -362,9 +464,9 @@ tailwind.config = {
         </div>
         <p class="text-mute text-xs leading-relaxed pt-2">Расчёт примерный при ставке от 21% годовых. Точную сумму назовём после одобрения банка. По промо-программам платёж может быть ниже.</p>
       </div>
-      <div class="md:col-span-2 p-8 rounded-2xl border border-accent/30 bg-gradient-to-b from-accent/10 to-accent/5 flex flex-col justify-center">
-        <div class="text-accent text-[11px] tracking-[0.2em] uppercase font-semibold mb-3">Платёж от</div>
-        <div id="pay" class="font-display font-extrabold text-[clamp(34px,6vw,60px)] leading-none tracking-tightest mb-3 text-text">—</div>
+      <div class="md:col-span-2 p-8 rounded-2xl flex flex-col justify-center" style="border:1px solid rgba(216,180,106,0.35); background:linear-gradient(180deg, rgba(216,180,106,0.10) 0%, rgba(216,180,106,0.03) 100%); box-shadow:0 20px 50px -22px rgba(216,180,106,0.35), inset 0 1px 0 rgba(255,255,255,0.06);">
+        <div class="text-[11px] tracking-[0.2em] uppercase font-semibold mb-3" style="color:var(--gold);">Платёж от</div>
+        <div id="pay" class="font-display font-extrabold text-[clamp(34px,6vw,60px)] leading-none tracking-tightest mb-3 text-text transition-all duration-300">—</div>
         <div id="detail" class="text-dim text-sm mb-6 leading-relaxed">—</div>
         <button id="calcWaBtn" type="button" class="btn-primary w-full">Оставить заявку с этим расчётом</button>
         <a href="#lead" class="btn-ghost mt-3 w-full">К полной форме</a>
@@ -374,7 +476,7 @@ tailwind.config = {
 </section>
 
 <!-- ===================== WHY ===================== -->
-<section id="why" class="py-24 md:py-32">
+<section id="why" class="py-28 md:py-40">
   <div class="max-w-7.5xl mx-auto px-6 md:px-12">
     <div data-reveal>
       <span class="eyebrow">Почему G AUTO</span>
@@ -385,13 +487,13 @@ tailwind.config = {
 </section>
 
 <!-- ===================== LEAD ===================== -->
-<section id="lead" class="py-24 md:py-32 bg-bg2 border-y border-line">
+<section id="lead" class="py-28 md:py-40 bg-bg2 border-y border-line">
   <div class="max-w-7.5xl mx-auto px-6 md:px-12">
     <div data-reveal>
       <span class="eyebrow">Онлайн-заявка</span>
       <h2 class="section-h2">Расскажи о себе — соберём предложение</h2>
     </div>
-    <form id="leadForm" data-reveal class="grid sm:grid-cols-2 gap-4 md:gap-5 p-6 md:p-10 rounded-2xl border border-line bg-bg3">
+    <form id="leadForm" data-reveal class="glass-card grid sm:grid-cols-2 gap-4 md:gap-5 p-6 md:p-10">
       <label class="block">
         <span class="block text-mute text-xs mb-2 tracking-wide">Имя</span>
         <input name="name" required maxlength="60" class="w-full bg-bg border border-line2 rounded-xl px-4 py-3.5 text-sm focus:border-accent focus:outline-none transition" />
@@ -440,7 +542,7 @@ tailwind.config = {
 </section>
 
 <!-- ===================== CONTACTS ===================== -->
-<section id="contacts" class="py-24 md:py-32">
+<section id="contacts" class="py-28 md:py-40">
   <div class="max-w-7.5xl mx-auto px-6 md:px-12">
     <div data-reveal>
       <span class="eyebrow">Контакты</span>
@@ -474,19 +576,65 @@ tailwind.config = {
 </section>
 
 <!-- ===================== FOOTER ===================== -->
-<footer class="border-t border-line py-12">
-  <div class="max-w-7.5xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-    <div>
-      <a href="#" class="font-display font-extrabold text-xl tracking-[0.08em]">G<span class="text-accent">AUTO</span></a>
-      <p class="text-mute text-sm mt-2">Dongfeng в Алматы · проспект Турара Рыскулова 79</p>
+<footer class="border-t border-line bg-bg2 pt-16 md:pt-20 pb-10">
+  <div class="max-w-7.5xl mx-auto px-6 md:px-12">
+    <div class="grid md:grid-cols-12 gap-10 md:gap-8 pb-12 border-b border-line">
+
+      <!-- Brand -->
+      <div class="md:col-span-5">
+        <a href="#" class="flex flex-col leading-none mb-4">
+          <span class="font-display font-extrabold text-[15px] tracking-[0.18em] text-white/90">DONGFENG</span>
+          <span class="font-display font-extrabold text-[15px] tracking-[0.18em] text-accent">AEOLUS</span>
+        </a>
+        <p class="text-dim text-sm max-w-xs leading-relaxed">Официальный модельный ряд Dongfeng в Алматы. Кредит до 84 месяцев, 10 банков-партнёров, программа Trade-in.</p>
+        <div class="flex items-center gap-3 mt-6">
+          <a href="https://wa.me/77008888505" target="_blank" rel="noopener" class="foot-social" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" class="fill-white/80"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.65 4.13 1.88 5.83L2 22l4.36-1.97c1.66.92 3.61 1.44 5.68 1.44 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.91-9.91-9.91zm0 18.13c-1.85 0-3.66-.5-5.24-1.45l-.37-.22-3.07 1.39 1.4-3.01-.23-.39c-1.04-1.67-1.59-3.61-1.59-5.6 0-5.04 4.1-9.13 9.13-9.13s9.13 4.1 9.13 9.13c0 5.04-4.1 9.13-9.13 9.13z"/></svg>
+          </a>
+          <a href="tel:+77008888505" class="foot-social" aria-label="Позвонить">
+            <svg viewBox="0 0 24 24" class="fill-white/80"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1l-2.2 2.2z"/></svg>
+          </a>
+          <a href="https://2gis.kz/almaty/search/проспект%20Турара%20Рыскулова%2079" target="_blank" rel="noopener" class="foot-social" aria-label="2GIS">
+            <svg viewBox="0 0 24 24" class="fill-none" stroke="currentColor" stroke-width="1.8" style="color:rgba(255,255,255,0.8)"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Models -->
+      <div class="md:col-span-3">
+        <div class="text-mute text-[11px] tracking-[0.2em] uppercase font-semibold mb-4">Модели</div>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="#lineup" class="foot-link">Aeolus Haohan</a></li>
+          <li><a href="#lineup" class="foot-link">Aeolus Haoji</a></li>
+          <li><a href="#lineup" class="foot-link">eπ 007</a></li>
+          <li><a href="#lineup" class="foot-link">eπ 008</a></li>
+          <li><a href="#lineup" class="foot-link">Voyah Free</a></li>
+        </ul>
+      </div>
+
+      <!-- Nav -->
+      <div class="md:col-span-2">
+        <div class="text-mute text-[11px] tracking-[0.2em] uppercase font-semibold mb-4">Навигация</div>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="#calc" class="foot-link">Кредит</a></li>
+          <li><a href="#tradein" class="foot-link">Trade-in</a></li>
+          <li><a href="#why" class="foot-link">Почему G AUTO</a></li>
+          <li><a href="#lead" class="foot-link">Онлайн-заявка</a></li>
+        </ul>
+      </div>
+
+      <!-- Contacts -->
+      <div class="md:col-span-2">
+        <div class="text-mute text-[11px] tracking-[0.2em] uppercase font-semibold mb-4">Контакты</div>
+        <a href="tel:+77008888505" class="font-display text-lg text-text hover:text-accent transition block mb-2">+7 700 888 8505</a>
+        <p class="text-dim text-sm leading-relaxed">Алматы,<br>проспект Турара Рыскулова 79</p>
+      </div>
     </div>
-    <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-dim">
-      <a href="#lineup" class="hover:text-text transition">Модели</a>
-      <a href="#calc" class="hover:text-text transition">Кредит</a>
-      <a href="#tradein" class="hover:text-text transition">Trade-in</a>
-      <a href="#contacts" class="hover:text-text transition">Контакты</a>
+
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 pt-7">
+      <div class="text-mute text-xs">© 2026 G AUTO · Dongfeng Aeolus в Алматы</div>
+      <div class="text-mute text-xs">Цены и характеристики — справочные, уточняйте в шоуруме.</div>
     </div>
-    <div class="text-mute text-xs">© 2026 G AUTO</div>
   </div>
 </footer>
 
@@ -598,7 +746,7 @@ const cardGrid = document.getElementById('cardGrid');
 cardGrid.innerHTML = ORDER.map((id, i) => {
   const c = CARS[id];
   return `
-  <button data-car="${id}" data-reveal data-d="${(i%3)+1}" class="car-card group text-left relative overflow-hidden rounded-2xl border border-line bg-bg2 transition-all duration-500 hover:border-accent/50 hover:-translate-y-1">
+  <button data-car="${id}" data-reveal data-d="${(i%3)+1}" class="car-card group text-left relative overflow-hidden rounded-2xl">
     <div class="relative aspect-[16/10] overflow-hidden">
       <span class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-accent/90 backdrop-blur text-xs font-bold tracking-wider text-white">${c.badge}</span>
       <div class="card-glow absolute -inset-px z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" style="background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%), rgba(0,102,255,0.18), transparent 60%);"></div>
@@ -629,19 +777,30 @@ cardGrid.innerHTML = ORDER.map((id, i) => {
 }).join('');
 
 /* ---------- Why grid ---------- */
+const WHY_ICON = {
+  percent: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>',
+  calendar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2.5"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2.5" x2="8" y2="6"/><line x1="16" y1="2.5" x2="16" y2="6"/></svg>',
+  bank:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5"/><line x1="4" y1="10" x2="4" y2="19"/><line x1="9" y1="10" x2="9" y2="19"/><line x1="15" y1="10" x2="15" y2="19"/><line x1="20" y1="10" x2="20" y2="19"/><line x1="3" y1="20" x2="21" y2="20"/></svg>',
+  swap:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4 3 8l4 4"/><path d="M3 8h13"/><path d="M17 20l4-4-4-4"/><path d="M21 16H8"/></svg>',
+  shield:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.5c0 4.4 3 7.6 7 9 4-1.4 7-4.6 7-9V6l-7-3z"/><path d="M9 12l2 2 4-4"/></svg>',
+  location:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>'
+};
 const WHY = [
-  ["0%","Первоначальный взнос","Можно стартовать без первого взноса — по одобренным программам."],
-  ["84","Месяца рассрочки","Длинный срок кредита делает ежемесячный платёж комфортным."],
-  ["10","Банков-партнёров","Подаём заявку сразу в несколько банков и выбираем лучшую ставку."],
-  ["Trade-in","Программа Trade-in","Сдайте свою машину в зачёт стоимости новой — принимаем за 1 день, быстро и честно."],
-  ["₸","Честный платёж","Никаких скрытых комиссий — итоговую сумму называем до подписания."],
-  ["Алматы","Шоурум в Алматы","Приезжайте на проспект Турара Рыскулова 79 — покажем и проведём тест-драйв."]
+  ["percent","0%","Первоначальный взнос","Можно стартовать без первого взноса — по одобренным программам."],
+  ["calendar","84","Месяца рассрочки","Длинный срок кредита делает ежемесячный платёж комфортным."],
+  ["bank","10","Банков-партнёров","Подаём заявку сразу в несколько банков и выбираем лучшую ставку."],
+  ["swap","Trade-in","Программа Trade-in","Сдайте свою машину в зачёт стоимости новой — принимаем за 1 день, быстро и честно."],
+  ["shield","₸","Честный платёж","Никаких скрытых комиссий — итоговую сумму называем до подписания."],
+  ["location","Алматы","Шоурум в Алматы","Приезжайте на проспект Турара Рыскулова 79 — покажем и проведём тест-драйв."]
 ];
 document.getElementById('whyGrid').innerHTML = WHY.map((w,i) => `
-  <div data-reveal data-d="${(i%3)+1}" class="p-7 rounded-2xl border border-line bg-bg2 hover:border-accent/40 transition-colors">
-    <div class="font-display font-bold text-3xl text-accent mb-3 tracking-tightest">${w[0]}</div>
-    <div class="font-semibold text-lg mb-1.5">${w[1]}</div>
-    <div class="text-dim text-sm leading-relaxed">${w[2]}</div>
+  <div data-reveal data-d="${(i%3)+1}" class="car-card rounded-2xl p-7 flex flex-col gap-3">
+    <div class="flex items-center gap-3">
+      <div class="why-ico">${WHY_ICON[w[0]]}</div>
+      <div class="font-display font-bold text-2xl text-accent tracking-tightest">${w[1]}</div>
+    </div>
+    <div class="font-semibold text-lg">${w[2]}</div>
+    <div class="text-dim text-sm leading-relaxed">${w[3]}</div>
   </div>`).join('');
 
 /* ---------- Modal ---------- */
